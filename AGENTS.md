@@ -17,6 +17,16 @@ This repo is a Vietnamese grade-1 story production workspace. It stores:
 - generated image prompts, manifests, and PNGs in `assets/generated-story-images/`
 - rendered swipe-only HTML books in `assets/generated-story-books/`
 - local Codex skills in `skills/`
+- a React web app for browsing and reading the books in `web-app/`
+
+## Web App
+
+`web-app/` is a standalone React + Vite + TypeScript app ("Xoài Tập Đọc"). See [`web-app/README.md`](web-app/README.md) for setup and architecture.
+
+Key rules when touching the web app:
+- Regenerate the manifest after adding stories: `python3 web-app/scripts/generate-stories-manifest.py`
+- `web-app/dist/` and `web-app/node_modules/` are gitignored — never commit them.
+- `vite.config.ts` uses `publicDir: '../assets'`; the assets folder is shared with the pipeline — do not move or rename it.
 
 ## Skill Routing
 

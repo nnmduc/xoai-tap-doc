@@ -96,6 +96,14 @@ python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline
 
 After rendering a book, open the generated `index.html` and verify the page flow manually.
 
+## Web App
+
+The `web-app/` directory is a separate React + Vite + TypeScript project. Its own `web-app/README.md` covers setup, architecture, and build commands. When working on it:
+
+- Never edit `assets/` paths — they are shared with the story pipeline.
+- Run `python3 web-app/scripts/generate-stories-manifest.py` from the repo root to refresh `assets/stories-manifest.json` after story changes.
+- `web-app/dist/` and `web-app/node_modules/` are gitignored.
+
 ## Documentation
 
 Update root guidance files when workflow, commands, layout, or output expectations change:

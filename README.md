@@ -1,89 +1,66 @@
-# Xoai Tap Doc
+# Xoài Tập Đọc
 
-A tool for generating illustrated Vietnamese picture books for grade-1 readers — complete with story text, AI-generated artwork, and a swipe-only HTML book you can open on any device.
+A production workspace for generating illustrated Vietnamese picture books for grade-1 readers (Lớp 1). Give it a story idea and the agent skills handle the full pipeline: write the story → generate AI artwork → render a swipe-only HTML book.
 
-## What It Creates
-
-Give it a story idea and it will:
-
-- Write a short, age-appropriate Vietnamese story (Lớp 1 level)
-- Generate a cover image, character portraits, and one illustration per scene
-- Bundle everything into a self-contained HTML picture book with swipe navigation
-
-Stories are safe, kind, and concrete — no scary, violent, or adult content.
+A React web app for browsing and reading the finished books is available at [`web-app/`](web-app/README.md).
 
 ---
 
 ## Quick Start
 
-### 1. Requirements
-
-- Python 3.10 or later
-- Claude Code or Codex with access to the local skills in this repo
-- Image generation available to your agent:
-  - Codex can use its native image generation tool
-  - Claude Code can use an image-capable skill such as `ai-multimodal`
-
-### 2. Install the Skills
-
-Clone this repo, then open the project with Claude Code or Codex:
+**Requirements:** Python 3.10+, Claude Code or Codex, image generation capability.
 
 ```bash
 git clone <this-repo> ~/xoai-tap-doc
 cd ~/xoai-tap-doc
 ```
 
-The `skills/` folder contains four local agent skills. They are picked up automatically when you open Claude Code or Codex inside this directory — no extra install step needed.
+Skills in `skills/` are picked up automatically — no install step.
 
-### 3. Create Your First Story
-
-Open Claude Code or Codex in this directory.
-
-With Claude Code, run:
+### Create a story
 
 ```
 /vietnamese-kids-story-orchestrator con mèo và chiếc lá vàng
 ```
 
-With Codex, ask for the same skill by name:
+Or in plain text: *"Tạo câu chuyện về chú chó nhỏ tìm được người bạn mới ở sân trường"*
 
-> "Use `vietnamese-kids-story-orchestrator` to create a story about con mèo và chiếc lá vàng"
+The orchestrator runs the full pipeline and stops when the book is `complete`.
 
-In either agent, you can also describe what you want in plain text:
-
-> "Tạo một câu chuyện về chú chó nhỏ tìm được người bạn mới ở sân trường"
-
-The agent will handle the full pipeline: write the story → generate images → render the HTML book.
-
-### 4. Open the Book
-
-When the pipeline reaches `complete`, open the rendered book in any browser:
+### Open the book
 
 ```
 assets/generated-story-books/<story-slug>/index.html
 ```
 
-Swipe left/right to turn pages. Tap/click/scroll are intentionally disabled — it is designed for young readers on touch screens.
+Swipe left/right to turn pages. Tap/click/scroll are intentionally disabled.
 
 ---
 
-## Managing Existing Stories
-
-Check the status of all stories at once:
+## Managing Stories
 
 ```bash
+# All stories
 python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline-status.py --all
+
+# One story
+python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline-status.py --slug <slug>
 ```
 
-Check one story:
+States: `new` → `story_incomplete` → `story_ready` → `prompts_ready` → `media_partial` → `media_complete` → `complete`
 
-```bash
-python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline-status.py --slug <story-slug>
-```
+Re-run the orchestrator on any slug to resume from where it stopped. Nothing is overwritten unless you ask.
 
-Possible states: `new` → `story_incomplete` → `story_ready` → `prompts_ready` → `media_partial` → `media_complete` → `complete`
+---
 
-If a story is stuck at any state, run the orchestrator skill again and it will pick up from where it left off — it never regenerates assets that already exist unless you ask.
+## Skills
+
+| Skill | Purpose |
+|-------|---------|
+| `vietnamese-kids-story-orchestrator` | Main entrypoint — coordinates the full pipeline |
+| `vietnamese-first-grade-story-writer` | Writes the story markdown |
+| `vietnamese-kids-story-illustrator` | Prepares image prompts and manifests |
+| `kid-story-book-html-template` | Renders the final swipe-only HTML book |
 
 ---
 
@@ -91,22 +68,21 @@ If a story is stuck at any state, run the orchestrator skill again and it will p
 
 ```
 assets/
-├── stories/                        # Source story markdown files
-├── generated-story-images/         # Image prompts, manifests, generated PNGs
-└── generated-story-books/          # Rendered HTML books
+├── stories/                        # Source story markdown
+├── generated-story-images/         # Prompts, manifests, PNGs
+├── generated-story-books/          # Rendered HTML books
+└── stories-manifest.json           # Web app manifest (auto-generated)
 
-skills/
-├── vietnamese-kids-story-orchestrator/   # Main entrypoint — coordinates the full pipeline
-├── vietnamese-first-grade-story-writer/  # Writes the story markdown
-├── vietnamese-kids-story-illustrator/    # Prepares image prompts and manifests
-└── kid-story-book-html-template/         # Renders the final HTML book
+skills/                             # Local agent skills (see above)
+
+web-app/                            # React reader app — see web-app/README.md
 ```
 
 ---
 
 ## Tips
 
-- **Resuming a partial run:** just invoke the orchestrator again with the same slug. It inspects the current state and continues from where it stopped.
-- **Regenerating images:** ask explicitly — "regenerate the cover for `<slug>`". By default nothing is overwritten.
-- **Multiple stories:** each story lives under its own slug. They never interfere with each other.
-- **Editing a story:** open `assets/stories/<slug>.md` and edit it directly. Re-run the orchestrator to regenerate affected images.
+- **Resume a partial run:** invoke the orchestrator again with the same slug — it continues from current state.
+- **Regenerate images:** ask explicitly; nothing is overwritten by default.
+- **Edit a story:** update `assets/stories/<slug>.md` directly, then re-run the orchestrator.
+- **Update the web app manifest:** run `python3 web-app/scripts/generate-stories-manifest.py` after adding stories.
