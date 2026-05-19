@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-05-19T06:58:06.621116+00:00",
+  "stories": [
+    {
+      "slug": "ban-do-trong-san-truong",
+      "title": "Bản Đồ Trong Sân Trường",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/ban-do-trong-san-truong/cover/cover.png",
+      "hasHtmlBook": true
+    },
+    {
+      "slug": "canh-cua-trong-tu-sach",
+      "title": "Cánh Cửa Trong Tủ Sách",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/canh-cua-trong-tu-sach/cover/cover.png",
+      "hasHtmlBook": true
+    },
+    {
+      "slug": "duong-sao-tren-san-thuong",
+      "title": "Đường Sao Trên Sân Thượng",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/duong-sao-tren-san-thuong/cover/cover.png",
+      "hasHtmlBook": true
+    }
+  ]
+}
