@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-19T06:58:06.621116+00:00",
+  "generatedAt": "2026-05-19T08:20:04.184189+00:00",
   "stories": [
     {
       "slug": "ban-do-trong-san-truong",
@@ -23,6 +23,14 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/duong-sao-tren-san-thuong/cover/cover.png",
+      "hasHtmlBook": true
+    },
+    {
+      "slug": "xoai-va-bo-cuu-chim-bo-cau",
+      "title": "Xoài Và Bơ Cứu Chim Bồ Câu",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/cover/cover.png",
       "hasHtmlBook": true
     }
   ]

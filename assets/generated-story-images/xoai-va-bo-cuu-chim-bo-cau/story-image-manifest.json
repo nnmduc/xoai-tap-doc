@@ -1,0 +1,115 @@
+{
+  "story_path": "assets/stories/xoai-va-bo-cuu-chim-bo-cau.md",
+  "title": "Xoài Và Bơ Cứu Chim Bồ Câu",
+  "story_slug": "xoai-va-bo-cuu-chim-bo-cau",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Xoài",
+      "description": "Anh hai 6 tuổi, cẩn thận và biết chăm em.",
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/characters/prompts/01-xoai.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/characters/01-xoai.png"
+    },
+    {
+      "index": 2,
+      "name": "Bơ",
+      "description": "Em trai nhỏ 1 tuổi rưỡi, vui vẻ và thích nhìn chim.",
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/characters/prompts/02-bo.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/characters/02-bo.png"
+    },
+    {
+      "index": 3,
+      "name": "Bạn Chim",
+      "description": "Chim bồ câu trắng nhỏ, hiền và dũng cảm.",
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/characters/prompts/03-ban-chim.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/characters/03-ban-chim.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Bên lều trại.",
+      "content": "Xoài nắm tay Bơ đi quanh lều. Rừng xanh và mát.",
+      "characters_present": [
+        "Xoài",
+        "Bơ"
+      ],
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Lối mòn nhỏ.",
+      "content": "Bơ chỉ lên bụi cỏ. Một bạn chim bồ câu đang đứng im.",
+      "characters_present": [
+        "Bơ",
+        "Bạn Chim"
+      ],
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Bụi cỏ ven lối.",
+      "content": "Chân bạn chim vướng vào sợi dây mềm. Xoài nói: “Mình giúp bạn nhé.”",
+      "characters_present": [
+        "Xoài",
+        "Bạn Chim"
+      ],
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Trên khăn nhỏ.",
+      "content": "Xoài gỡ dây thật chậm. Bơ đưa chén nước nhỏ cho bạn chim.",
+      "characters_present": [
+        "Xoài",
+        "Bơ",
+        "Bạn Chim"
+      ],
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Gần lều trại.",
+      "content": "Bạn chim uống nước và vỗ cánh nhẹ. Hai anh em nhìn bạn bằng mắt vui.",
+      "characters_present": [
+        "Bạn Chim"
+      ],
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Bãi cỏ trong rừng.",
+      "content": "Xoài mở tay. Bạn chim bay lên trời xanh, rồi bay khuất sau hàng cây.",
+      "characters_present": [
+        "Xoài",
+        "Bạn Chim"
+      ],
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Trước lều trại.",
+      "content": "Một lát sau, bạn chim quay lại. Bạn thả một cành hoa nhỏ tặng Xoài và Bơ.",
+      "characters_present": [
+        "Xoài",
+        "Bơ",
+        "Bạn Chim"
+      ],
+      "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/scenes/07-doan-7.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/story-image-manifest.json"
+}

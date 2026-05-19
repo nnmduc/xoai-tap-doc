@@ -55,10 +55,13 @@ Run this loop until state is `complete`:
 2. **If `new`**: invoke `vietnamese-first-grade-story-writer` to create `assets/stories/<story-slug>.md`. Then re-inspect status and continue.
 3. **If `story_incomplete`**: fix the existing story file directly. Then re-inspect status and continue.
 4. **If `story_ready`**: invoke `vietnamese-kids-story-illustrator` to prepare manifest and prompts. After it finishes, re-inspect status and continue — **do not stop here**.
-5. **If `prompts_ready` or `media_partial`**: generate only missing media using `ai-multimodal` skill:
+5. **If `prompts_ready` or `media_partial`**: generate only missing media using the `vietnamese-kids-story-illustrator` image-generation protocol:
    - character images first (one per `characters[*].prompt_path` → `characters[*].output_path`)
    - then cover image (`cover.prompt_path` → `cover.output_path`)
    - then scene images (one per `scenes[*].prompt_path` → `scenes[*].output_path`)
+   - On Codex/OpenAI, use the native image generation tool from the prompt files and copy generated files into the exact output paths.
+   - On Claude Code, use an AI image-generation provider such as `ai-multimodal` or `ai-artist`.
+   - Do not create final story media with hand-written rendering code, Pillow, SVG, canvas, HTML/CSS screenshots, or placeholders. If no AI image-generation tool/provider is available, stop and report the missing setup.
    After all images are generated, re-inspect status and continue — **do not stop here**.
 6. **If `media_complete`**: invoke `kid-story-book-html-template` to render the final HTML. After it finishes, re-inspect status and continue — **do not stop here**.
 7. **If `complete`**: the pipeline is done. Report final state and output paths.

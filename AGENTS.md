@@ -54,7 +54,7 @@ State handling:
 - `new`: create `assets/stories/<story-slug>.md`
 - `story_incomplete`: fix the existing story directly
 - `story_ready`: prepare image manifest and prompts
-- `prompts_ready` or `media_partial`: generate only missing media
+- `prompts_ready` or `media_partial`: generate only missing media with an AI image-generation tool from the prepared prompt files
 - `media_complete`: render HTML book
 - `complete`: report outputs; do not regenerate unless asked
 
@@ -66,6 +66,7 @@ State handling:
 - Do not mix assets from different stories.
 - Do not shorten, paraphrase, or rewrite story `Nội dung` when rendering books.
 - Do not add rendered text, labels, watermarks, speech bubbles, or page numbers inside images.
+- Do not create final story images with hand-written rendering code, Pillow, SVG, canvas, HTML/CSS screenshots, or placeholders. Missing media must come from an AI image-generation tool/provider or an explicitly user-provided image.
 - If story content changes after media exists, mention that existing media may be stale before regenerating.
 
 ## Python Rules
@@ -95,4 +96,3 @@ For completed work, report:
 - unresolved questions at the end, if any
 
 Keep reports concise.
-
