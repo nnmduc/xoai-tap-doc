@@ -1,0 +1,111 @@
+{
+  "story_path": "assets/stories/ban-moi-o-san-truong.md",
+  "title": "Bạn Mới Ở Sân Trường",
+  "story_slug": "ban-moi-o-san-truong",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/ban-moi-o-san-truong",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Linh",
+      "description": "Bạn nhỏ vui vẻ và hay quan tâm.",
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/characters/prompts/01-linh.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/characters/01-linh.png"
+    },
+    {
+      "index": 2,
+      "name": "Minh",
+      "description": "Bạn mới còn rụt rè.",
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/characters/prompts/02-minh.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/characters/02-minh.png"
+    },
+    {
+      "index": 3,
+      "name": "Hoa",
+      "description": "Bạn nhỏ hiền và thích chia sẻ.",
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/characters/prompts/03-hoa.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/characters/03-hoa.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Sân trường.",
+      "content": "Giờ ra chơi đã đến. Linh thấy Minh đứng một mình bên ghế đá.",
+      "characters_present": [
+        "Linh",
+        "Minh"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Ghế đá dưới cây bàng.",
+      "content": "Linh lại gần và nói: “Bạn chơi cùng mình nhé!” Minh mỉm cười rất nhẹ.",
+      "characters_present": [
+        "Linh",
+        "Minh"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Góc sân có vạch kẻ.",
+      "content": "Hoa mang ra một quả bóng mềm. Ba bạn chuyền bóng qua lại thật chậm.",
+      "characters_present": [
+        "Hoa"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Giữa sân trường.",
+      "content": "Quả bóng lăn xa. Minh chạy theo và nhặt bóng đưa cho Hoa.",
+      "characters_present": [
+        "Minh",
+        "Hoa"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Dưới cây phượng.",
+      "content": "Linh vỗ tay khen Minh. Minh thấy lòng mình vui hơn.",
+      "characters_present": [
+        "Linh",
+        "Minh"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Sân trường nắng nhẹ.",
+      "content": "Hoa chia cho mỗi bạn một chiếc lá đẹp. Ba bạn đặt lá thành hình trái tim.",
+      "characters_present": [
+        "Hoa"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Cửa lớp Một.",
+      "content": "Tiếng trống vang lên. Minh nói: “Ngày mai mình lại chơi cùng nhau nhé!”",
+      "characters_present": [
+        "Minh"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/ban-moi-o-san-truong/scenes/07-doan-7.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/ban-moi-o-san-truong/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/ban-moi-o-san-truong/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/ban-moi-o-san-truong/story-image-manifest.json"
+}

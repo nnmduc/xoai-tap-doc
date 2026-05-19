@@ -1,0 +1,125 @@
+{
+  "story_path": "assets/stories/na-va-ken-di-so-thu.md",
+  "title": "Na Và Ken Đi Sở Thú",
+  "story_slug": "na-va-ken-di-so-thu",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/na-va-ken-di-so-thu",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Na",
+      "description": "Chị hai 3 tuổi, hiền, vui vẻ, rất thương em Ken.",
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/prompts/01-na.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/01-na.png"
+    },
+    {
+      "index": 2,
+      "name": "Ken",
+      "description": "Em trai 1 tuổi rưỡi, nhỏ nhắn, hay cười, thích chơi đồ chơi.",
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/prompts/02-ken.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/02-ken.png"
+    },
+    {
+      "index": 3,
+      "name": "Mẹ",
+      "description": "Người mẹ dịu dàng, chăm sóc hai con và vui khi Na biết giúp đỡ.",
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/prompts/03-me.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/03-me.png"
+    },
+    {
+      "index": 4,
+      "name": "Ba",
+      "description": "Người ba ấm áp, yêu con và đưa cả nhà đi sở thú.",
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/prompts/04-ba.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/04-ba.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Phòng chơi trong nhà.",
+      "content": "Na ngồi bên Ken. Na đưa cho Ken con thỏ bông mềm.",
+      "characters_present": [
+        "Na",
+        "Ken"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Tấm thảm nhỏ.",
+      "content": "Ken cười khanh khách. Na nói: “Em chơi ngoan nhé.”",
+      "characters_present": [
+        "Na",
+        "Ken"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Góc đồ chơi.",
+      "content": "Mẹ xếp áo ở gần đó. Na vừa chơi với Ken vừa nhìn mẹ.",
+      "characters_present": [
+        "Na",
+        "Ken",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Sàn nhà sau giờ chơi.",
+      "content": "Đồ chơi của Ken nằm trên sàn. Na nhặt từng món bỏ vào rổ.",
+      "characters_present": [
+        "Na",
+        "Ken"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Cửa phòng chơi.",
+      "content": "Mẹ ôm Na và khen: “Con biết giúp mẹ.” Ken vỗ tay thật vui.",
+      "characters_present": [
+        "Na",
+        "Ken",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Trước cửa nhà.",
+      "content": "Ba về và mỉm cười. Ba Mẹ thưởng Na và Ken đi thăm sở thú.",
+      "characters_present": [
+        "Na",
+        "Ken",
+        "Mẹ",
+        "Ba"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Sở thú xanh mát.",
+      "content": "Na nắm tay Ken nhìn hươu cao cổ. Cả nhà cười thật vui.",
+      "characters_present": [
+        "Na",
+        "Ken"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/07-doan-7.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/na-va-ken-di-so-thu/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/na-va-ken-di-so-thu/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/na-va-ken-di-so-thu/story-image-manifest.json"
+}

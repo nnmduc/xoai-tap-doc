@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-19T08:20:04.184189+00:00",
+  "generatedAt": "2026-05-19T14:59:08.945000+00:00",
   "stories": [
     {
       "slug": "ban-do-trong-san-truong",
@@ -7,6 +7,14 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/ban-do-trong-san-truong/cover/cover.png",
+      "hasHtmlBook": true
+    },
+    {
+      "slug": "ban-moi-o-san-truong",
+      "title": "Bạn Mới Ở Sân Trường",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/ban-moi-o-san-truong/cover/cover.png",
       "hasHtmlBook": true
     },
     {
@@ -18,11 +26,35 @@
       "hasHtmlBook": true
     },
     {
+      "slug": "chuyen-di-tim-cau-vong",
+      "title": "Chuyến Đi Tìm Cầu Vồng",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/chuyen-di-tim-cau-vong/cover/cover.png",
+      "hasHtmlBook": true
+    },
+    {
       "slug": "duong-sao-tren-san-thuong",
       "title": "Đường Sao Trên Sân Thượng",
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/duong-sao-tren-san-thuong/cover/cover.png",
+      "hasHtmlBook": true
+    },
+    {
+      "slug": "na-va-ken-di-so-thu",
+      "title": "Na Và Ken Đi Sở Thú",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/na-va-ken-di-so-thu/cover/cover.png",
+      "hasHtmlBook": true
+    },
+    {
+      "slug": "thuyen-giay-ra-khoi",
+      "title": "Thuyền Giấy Ra Khơi",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/thuyen-giay-ra-khoi/cover/cover.png",
       "hasHtmlBook": true
     },
     {

@@ -1,0 +1,109 @@
+{
+  "story_path": "assets/stories/thuyen-giay-ra-khoi.md",
+  "title": "Thuyền Giấy Ra Khơi",
+  "story_slug": "thuyen-giay-ra-khoi",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/thuyen-giay-ra-khoi",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Bo",
+      "description": "Bạn nhỏ thích gấp giấy.",
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/characters/prompts/01-bo.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/characters/01-bo.png"
+    },
+    {
+      "index": 2,
+      "name": "Na",
+      "description": "Bạn nhỏ cẩn thận.",
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/characters/prompts/02-na.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/characters/02-na.png"
+    },
+    {
+      "index": 3,
+      "name": "Ông Tư",
+      "description": "Người giữ sân chung cư.",
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/characters/prompts/03-ong-tu.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/characters/03-ong-tu.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Hành lang nhà.",
+      "content": "Bo gấp một chiếc thuyền giấy màu xanh. Na vẽ thêm lá cờ nhỏ.",
+      "characters_present": [
+        "Bo",
+        "Na"
+      ],
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Sân chung cư.",
+      "content": "Sau mưa, sân có một dòng nước nhỏ chảy ven lối đi.",
+      "characters_present": [],
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Mép dòng nước.",
+      "content": "Bo đặt thuyền xuống. Thuyền trôi chậm như đang ra khơi.",
+      "characters_present": [
+        "Bo"
+      ],
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Gần chậu cây.",
+      "content": "Thuyền mắc vào chiếc lá. Na dùng que nhỏ đẩy nhẹ thuyền đi tiếp.",
+      "characters_present": [
+        "Na"
+      ],
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Cuối sân.",
+      "content": "Ông Tư thấy hai bạn chơi. Ông nhắc: “Đứng xa chỗ trơn nhé!”",
+      "characters_present": [
+        "Ông Tư",
+        "Bo",
+        "Na"
+      ],
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Sân chung cư.",
+      "content": "Thuyền đến vũng nước rộng. Bo gọi đó là biển lớn.",
+      "characters_present": [
+        "Bo"
+      ],
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Hành lang nhà.",
+      "content": "Bo và Na kể lại chuyến đi. Hai bạn hứa lần sau gấp thuyền to hơn.",
+      "characters_present": [
+        "Bo",
+        "Na"
+      ],
+      "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/scenes/07-doan-7.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/thuyen-giay-ra-khoi/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/thuyen-giay-ra-khoi/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/thuyen-giay-ra-khoi/story-image-manifest.json"
+}

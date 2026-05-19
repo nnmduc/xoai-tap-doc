@@ -1,0 +1,90 @@
+{
+  "state": "complete",
+  "story": {
+    "exists": true,
+    "path": "/Users/duc/Projects/peter/xoai-tap-doc/assets/stories/na-va-ken-di-so-thu.md",
+    "title": "Na Và Ken Đi Sở Thú",
+    "slug": "na-va-ken-di-so-thu",
+    "section_count": 7,
+    "paragraph_count": 7,
+    "issues": [],
+    "ready": true
+  },
+  "media": {
+    "manifest_exists": true,
+    "manifest_path": "/Users/duc/Projects/peter/xoai-tap-doc/assets/generated-story-images/na-va-ken-di-so-thu/story-image-manifest.json",
+    "expected_count": 12,
+    "existing_count": 12,
+    "missing_count": 0,
+    "missing": [],
+    "existing": [
+      {
+        "kind": "cover",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/cover/cover.png"
+      },
+      {
+        "kind": "character",
+        "name": "Na",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/01-na.png"
+      },
+      {
+        "kind": "character",
+        "name": "Ken",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/02-ken.png"
+      },
+      {
+        "kind": "character",
+        "name": "Mẹ",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/03-me.png"
+      },
+      {
+        "kind": "character",
+        "name": "Ba",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/characters/04-ba.png"
+      },
+      {
+        "kind": "scene",
+        "name": "1",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/01-doan-1.png"
+      },
+      {
+        "kind": "scene",
+        "name": "2",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/02-doan-2.png"
+      },
+      {
+        "kind": "scene",
+        "name": "3",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/03-doan-3.png"
+      },
+      {
+        "kind": "scene",
+        "name": "4",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/04-doan-4.png"
+      },
+      {
+        "kind": "scene",
+        "name": "5",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/05-doan-5.png"
+      },
+      {
+        "kind": "scene",
+        "name": "6",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/06-doan-6.png"
+      },
+      {
+        "kind": "scene",
+        "name": "7",
+        "path": "assets/generated-story-images/na-va-ken-di-so-thu/scenes/07-doan-7.png"
+      }
+    ],
+    "complete": true
+  },
+  "book": {
+    "exists": true,
+    "path": "/Users/duc/Projects/peter/xoai-tap-doc/assets/generated-story-books/na-va-ken-di-so-thu/index.html"
+  },
+  "next_actions": [
+    "Story package complete: /Users/duc/Projects/peter/xoai-tap-doc/assets/generated-story-books/na-va-ken-di-so-thu/index.html"
+  ]
+}

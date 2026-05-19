@@ -1,0 +1,110 @@
+{
+  "story_path": "assets/stories/chuyen-di-tim-cau-vong.md",
+  "title": "Chuyến Đi Tìm Cầu Vồng",
+  "story_slug": "chuyen-di-tim-cau-vong",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/chuyen-di-tim-cau-vong",
+  "characters": [
+    {
+      "index": 1,
+      "name": "An",
+      "description": "Bạn nhỏ tò mò.",
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/characters/prompts/01-an.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/characters/01-an.png"
+    },
+    {
+      "index": 2,
+      "name": "Bố",
+      "description": "Người luôn chỉ dẫn An.",
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/characters/prompts/02-bo.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/characters/02-bo.png"
+    },
+    {
+      "index": 3,
+      "name": "Vy",
+      "description": "Bạn thân của An.",
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/characters/prompts/03-vy.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/characters/03-vy.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Trước hiên nhà.",
+      "content": "Mưa vừa tạnh. An thấy nắng chiếu lên giọt nước trên lá.",
+      "characters_present": [
+        "An"
+      ],
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Ngõ nhỏ.",
+      "content": "Bố nói: “Mình đi tìm cầu vồng nhé!” An vui lắm.",
+      "characters_present": [
+        "An",
+        "Bố"
+      ],
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Đường cạnh hàng cây.",
+      "content": "Vy cũng đi cùng. Ba người bước chậm, nhìn lên bầu trời trong.",
+      "characters_present": [
+        "Vy",
+        "An",
+        "Bố"
+      ],
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Bãi cỏ.",
+      "content": "An chỉ tay lên cao. Một dải màu nhạt hiện ra sau đám mây.",
+      "characters_present": [
+        "An"
+      ],
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Bãi cỏ.",
+      "content": "Vy đếm màu. Đỏ, cam, vàng, lục, lam, chàm, tím.",
+      "characters_present": [
+        "Vy"
+      ],
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Đường về nhà.",
+      "content": "Cầu vồng mờ dần. An vẫn cười vì đã thấy điều mình tìm.",
+      "characters_present": [
+        "An"
+      ],
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Hiên nhà.",
+      "content": "An vẽ cầu vồng vào vở. Bạn viết: “Sau mưa là nắng đẹp.”",
+      "characters_present": [
+        "An"
+      ],
+      "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/scenes/07-doan-7.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/chuyen-di-tim-cau-vong/story-image-manifest.json"
+}
