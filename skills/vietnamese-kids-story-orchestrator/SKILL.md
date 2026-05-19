@@ -1,0 +1,106 @@
+---
+name: vietnamese-kids-story-orchestrator
+description: Single entrypoint for generating a complete Vietnamese kid story package. Use when the agent should inspect whether a story is new, story-only, media-partial, media-complete, or fully rendered, then coordinate story writing, cover/character/scene image generation, and swipe-only HTML book rendering.
+user-invocable: true
+when_to_use: "Invoke for end-to-end Vietnamese kids story generation — inspect pipeline status, write story, generate images, render swipe-only HTML book."
+category: content
+keywords: [vietnamese, story, kids, orchestrator, pipeline, images, html, book]
+argument-hint: "[story-slug or story title]"
+allowed-tools: [Bash, Read, Write, Edit]
+metadata:
+  short-description: Orchestrate full Vietnamese story pipeline
+---
+
+# Vietnamese Kids Story Orchestrator
+
+Use this skill as the first stop for end-to-end story generation. It coordinates:
+
+- `vietnamese-first-grade-story-writer`
+- `vietnamese-kids-story-illustrator`
+- `kid-story-book-html-template`
+
+## Status First
+
+Always inspect status before generating or regenerating anything:
+
+```bash
+python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline-status.py --story assets/stories/<story>.md
+```
+
+Other useful forms:
+
+```bash
+python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline-status.py --slug <story-slug>
+python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline-status.py --all
+python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline-status.py --slug <story-slug> --json
+```
+
+## States
+
+- `new`: no story markdown found yet.
+- `story_incomplete`: story file exists but its frontmatter/sections are incomplete or inconsistent.
+- `story_ready`: story markdown is ready; image manifest is missing.
+- `prompts_ready`: manifest exists; no generated media found yet.
+- `media_partial`: some cover/character/scene images exist, but at least one expected image is missing.
+- `media_complete`: all expected media exists; final HTML book is missing.
+- `complete`: story, media, and HTML book exist.
+
+## Orchestration Workflow
+
+**CRITICAL: This is a full-pipeline loop. Do NOT stop until the pipeline state is `complete`. Each sub-skill invocation is one step in the loop — completing a sub-skill means continue to the next step immediately, not finish.**
+
+Run this loop until state is `complete`:
+
+1. **Inspect status** with the script. Note the current state.
+2. **If `new`**: invoke `vietnamese-first-grade-story-writer` to create `assets/stories/<story-slug>.md`. Then re-inspect status and continue.
+3. **If `story_incomplete`**: fix the existing story file directly. Then re-inspect status and continue.
+4. **If `story_ready`**: invoke `vietnamese-kids-story-illustrator` to prepare manifest and prompts. After it finishes, re-inspect status and continue — **do not stop here**.
+5. **If `prompts_ready` or `media_partial`**: generate only missing media using `ai-multimodal` skill:
+   - character images first (one per `characters[*].prompt_path` → `characters[*].output_path`)
+   - then cover image (`cover.prompt_path` → `cover.output_path`)
+   - then scene images (one per `scenes[*].prompt_path` → `scenes[*].output_path`)
+   After all images are generated, re-inspect status and continue — **do not stop here**.
+6. **If `media_complete`**: invoke `kid-story-book-html-template` to render the final HTML. After it finishes, re-inspect status and continue — **do not stop here**.
+7. **If `complete`**: the pipeline is done. Report final state and output paths.
+
+**Never stop between steps.** After each sub-skill returns, immediately re-inspect the pipeline status and proceed to the next required step.
+
+## Regeneration Rules
+
+- Do not overwrite existing story, media, or HTML unless the user asks.
+- If only some media is missing, generate only missing files.
+- If story content changes after media exists, tell the user the media may be stale before regenerating.
+- Cover images are required when the manifest contains `cover.output_path`.
+- HTML rendering should preserve each section's original `Nội dung`; do not shorten story text for layout.
+
+## Expected Outputs
+
+```text
+assets/stories/<story-slug>.md
+assets/generated-story-images/<story-slug>/story-image-manifest.json
+assets/generated-story-images/<story-slug>/cover/cover.png
+assets/generated-story-images/<story-slug>/characters/*.png
+assets/generated-story-images/<story-slug>/scenes/*.png
+assets/generated-story-books/<story-slug>/index.html
+```
+
+## Status Script Output
+
+The status script prints:
+
+- detected title, slug, and paths
+- current state
+- story validation issues
+- missing media files
+- book HTML status
+- recommended next actions
+
+Use `--write-status` to save:
+
+```text
+assets/story-pipeline-status/<story-slug>.json
+```
+
+## Final Report
+
+Report the previous state, actions taken, final state, output paths, and unresolved questions at the end if any.

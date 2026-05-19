@@ -1,0 +1,119 @@
+{
+  "story_path": "assets/stories/duong-sao-tren-san-thuong.md",
+  "title": "Đường Sao Trên Sân Thượng",
+  "story_slug": "duong-sao-tren-san-thuong",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/duong-sao-tren-san-thuong",
+  "cover": {
+    "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/cover/cover.png"
+  },
+  "characters": [
+    {
+      "index": 1,
+      "name": "Mai",
+      "description": "Bạn nhỏ thích ngắm trời.",
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/characters/prompts/01-mai.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/characters/01-mai.png"
+    },
+    {
+      "index": 2,
+      "name": "Bin",
+      "description": "Em trai của Mai.",
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/characters/prompts/02-bin.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/characters/02-bin.png"
+    },
+    {
+      "index": 3,
+      "name": "Mẹ",
+      "description": "Người kể chuyện nhẹ nhàng.",
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/characters/prompts/03-me.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/characters/03-me.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Cầu thang.",
+      "content": "Mai dắt Bin lên sân thượng. Mẹ mang theo một tấm chiếu nhỏ.",
+      "phrase": "Mai dắt Bin lên sân thượng",
+      "characters_present": [
+        "Mai",
+        "Bin",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Sân thượng.",
+      "content": "Trời tối xanh. Những vì sao sáng lên như đèn nhỏ.",
+      "phrase": "Sao sáng như đèn nhỏ",
+      "characters_present": [],
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Trên chiếu.",
+      "content": "Mai nối các ngôi sao bằng ngón tay. Bin nói đó là con đường bạc.",
+      "phrase": "Mai vẽ đường sao bạc",
+      "characters_present": [
+        "Mai",
+        "Bin"
+      ],
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Sân thượng.",
+      "content": "Mẹ kể rằng người xưa nhìn sao để tìm đường khi đi xa.",
+      "phrase": "Mẹ kể sao dẫn đường xa",
+      "characters_present": [
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Gần lan can.",
+      "content": "Mai chỉ ngôi sao sáng nhất. Bin bảo đó là đèn dẫn lối.",
+      "phrase": "Sao sáng dẫn lối về nhà",
+      "characters_present": [
+        "Mai",
+        "Bin"
+      ],
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Trên chiếu.",
+      "content": "Ba mẹ con cùng im lặng ngắm trời. Gió thổi mát nhẹ.",
+      "phrase": "Gió mát trên sân thượng",
+      "characters_present": [
+        "Mẹ",
+        "Mai",
+        "Bin"
+      ],
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Phòng ngủ.",
+      "content": "Bin ngủ rất nhanh. Mai mơ thấy mình đi trên con đường sao.",
+      "phrase": "Mai mơ đường sao dịu êm",
+      "characters_present": [
+        "Mai",
+        "Bin"
+      ],
+      "prompt_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/duong-sao-tren-san-thuong/scenes/07-doan-7.png"
+    }
+  ],
+  "manifest_path": "assets/generated-story-images/duong-sao-tren-san-thuong/story-image-manifest.json"
+}

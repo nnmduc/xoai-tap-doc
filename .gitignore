@@ -3,3 +3,6 @@ docs
 plans
 web-app/dist
 web-app/node_modules
+.DS_Store
+**/__pycache__/
+*.pyc

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vietnamese Story Orchestrator"
+  short_description: "Track and run full kids story pipeline"
+  default_prompt: "Use $vietnamese-kids-story-orchestrator to inspect story status and generate the missing story, media, and HTML outputs."

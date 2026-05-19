@@ -1,0 +1,8 @@
+interface:
+  display_name: "Vietnamese First-Grade Story Writer"
+  short_description: "Create formatted Vietnamese story files"
+  default_prompt: "Use $vietnamese-first-grade-story-writer to create a new Vietnamese class-1 story markdown file in assets/stories."
+
+policy:
+  allow_implicit_invocation: true
+

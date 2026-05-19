@@ -1,0 +1,108 @@
+{
+  "story_path": "assets/stories/canh-cua-trong-tu-sach.md",
+  "title": "Cánh Cửa Trong Tủ Sách",
+  "story_slug": "canh-cua-trong-tu-sach",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/canh-cua-trong-tu-sach",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Minh",
+      "description": "Bạn nhỏ thích đọc.",
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/characters/prompts/01-minh.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/characters/01-minh.png"
+    },
+    {
+      "index": 2,
+      "name": "Hoa",
+      "description": "Bạn nhỏ hay hỏi.",
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/characters/prompts/02-hoa.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/characters/02-hoa.png"
+    },
+    {
+      "index": 3,
+      "name": "Cô Thư",
+      "description": "Cô thủ thư dịu dàng.",
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/characters/prompts/03-co-thu.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/characters/03-co-thu.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Thư viện.",
+      "content": "Minh và Hoa tìm sách tranh. Hai bạn thấy một cuốn sách có bìa màu vàng.",
+      "characters_present": [
+        "Minh",
+        "Hoa"
+      ],
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Bàn đọc sách.",
+      "content": "Trên trang đầu có hình cánh cửa. Hoa nói: “Nhìn như cửa thật!”",
+      "characters_present": [
+        "Hoa"
+      ],
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Trong câu chuyện.",
+      "content": "Minh đọc to. Hai bạn tưởng mình bước vào khu vườn đầy nắng.",
+      "characters_present": [
+        "Minh",
+        "Hoa"
+      ],
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Khu vườn tưởng tượng.",
+      "content": "Con đường đá dẫn đến một ngọn đồi nhỏ. Trên đồi có lá cờ đỏ.",
+      "characters_present": [],
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Bàn đọc sách.",
+      "content": "Cô Thư hỏi: “Hai con thấy gì trong sách?” Minh kể về ngọn đồi.",
+      "characters_present": [
+        "Minh",
+        "Cô Thư"
+      ],
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Thư viện.",
+      "content": "Hoa nói sách giống chiếc cửa. Mở sách là có chuyến đi mới.",
+      "characters_present": [
+        "Hoa"
+      ],
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Lớp học.",
+      "content": "Minh mượn sách về nhà. Bạn muốn đọc tiếp hành trình ngày mai.",
+      "characters_present": [
+        "Minh"
+      ],
+      "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/scenes/07-doan-7.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/canh-cua-trong-tu-sach/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/canh-cua-trong-tu-sach/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/canh-cua-trong-tu-sach/story-image-manifest.json"
+}

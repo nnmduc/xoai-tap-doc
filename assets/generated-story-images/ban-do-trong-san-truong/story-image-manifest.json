@@ -1,0 +1,108 @@
+{
+  "story_path": "assets/stories/ban-do-trong-san-truong.md",
+  "title": "Bản Đồ Trong Sân Trường",
+  "story_slug": "ban-do-trong-san-truong",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/ban-do-trong-san-truong",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Lan",
+      "description": "Bạn nhỏ thích vẽ.",
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/characters/prompts/01-lan.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/characters/01-lan.png"
+    },
+    {
+      "index": 2,
+      "name": "Nam",
+      "description": "Bạn nhỏ nhanh nhẹn.",
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/characters/prompts/02-nam.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/characters/02-nam.png"
+    },
+    {
+      "index": 3,
+      "name": "Cô Mai",
+      "description": "Cô giáo hiền.",
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/characters/prompts/03-co-mai.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/characters/03-co-mai.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Gốc cây phượng.",
+      "content": "Lan thấy một mảnh giấy nhỏ dưới lá khô. Trên giấy có hình mũi tên màu đỏ.",
+      "characters_present": [
+        "Lan"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Sân trường.",
+      "content": "Nam chạy đến xem. Bạn reo lên: “Giống bản đồ kho báu quá!”",
+      "characters_present": [
+        "Nam"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Lối đi lát gạch.",
+      "content": "Hai bạn đi theo mũi tên. Mũi tên chỉ đến bồn hoa trước lớp Một.",
+      "characters_present": [
+        "Lan",
+        "Nam"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Bồn hoa.",
+      "content": "Lan thấy một viên sỏi có vẽ ngôi sao. Nam nhẹ nhàng nhặt lên.",
+      "characters_present": [
+        "Lan",
+        "Nam"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Ghế đá.",
+      "content": "Dưới ghế có hộp nhỏ. Trong hộp là ba chiếc huy hiệu giấy.",
+      "characters_present": [],
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Sân trường.",
+      "content": "Cô Mai mỉm cười. Cô nói đó là trò chơi tìm hiểu sân trường.",
+      "characters_present": [
+        "Cô Mai"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Lớp học.",
+      "content": "Lan và Nam chia huy hiệu cho bạn mới. Cả lớp cùng vui vẻ khám phá trường.",
+      "characters_present": [
+        "Lan",
+        "Nam"
+      ],
+      "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/ban-do-trong-san-truong/scenes/07-doan-7.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/ban-do-trong-san-truong/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/ban-do-trong-san-truong/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/ban-do-trong-san-truong/story-image-manifest.json"
+}

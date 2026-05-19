@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>Story Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fff8ed;
+      --ink: #3e2208;
+      --muted: rgba(62, 34, 8, 0.45);
+      --page-r: 22px;
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      width: 100%; min-height: 100%; margin: 0;
+      overflow: hidden; overscroll-behavior: none;
+      touch-action: none;
+      user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+      background:
+        radial-gradient(ellipse at 18% 22%, rgba(147, 51, 234, .36), transparent 38%),
+        radial-gradient(ellipse at 82% 14%, rgba(59, 130, 246, .30), transparent 32%),
+        radial-gradient(ellipse at 52% 88%, rgba(236, 72, 153, .22), transparent 42%),
+        linear-gradient(155deg, #0b0620 0%, #180b3d 38%, #0e1a48 65%, #080f20 100%);
+      font-family: "Baloo 2", ui-rounded, "Nunito", system-ui, sans-serif;
+      color: var(--ink);
+      position: fixed; inset: 0;
+    }
+
+    /* Stars */
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1.5px 1.5px at 5% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 15% 5%, rgba(255,255,255,.65), transparent),
+        radial-gradient(2px 2px at 28% 16%, rgba(255,255,210,.85), transparent),
+        radial-gradient(1px 1px at 42% 7%, rgba(255,255,255,.55), transparent),
+        radial-gradient(1.5px 1.5px at 59% 12%, #fff, transparent),
+        radial-gradient(1px 1px at 72% 4%, rgba(210,190,255,.70), transparent),
+        radial-gradient(2px 2px at 88% 9%, rgba(255,255,255,.80), transparent),
+        radial-gradient(1px 1px at 95% 21%, rgba(255,255,255,.45), transparent),
+        radial-gradient(1.5px 1.5px at 3% 40%, rgba(255,255,255,.48), transparent),
+        radial-gradient(1px 1px at 22% 47%, rgba(190,190,255,.58), transparent),
+        radial-gradient(1px 1px at 38% 32%, rgba(255,255,255,.38), transparent),
+        radial-gradient(2px 2px at 53% 26%, rgba(255,255,190,.68), transparent),
+        radial-gradient(1px 1px at 66% 44%, rgba(255,255,255,.48), transparent),
+        radial-gradient(1.5px 1.5px at 80% 37%, rgba(255,190,255,.58), transparent),
+        radial-gradient(1px 1px at 93% 51%, rgba(255,255,255,.38), transparent),
+        radial-gradient(1px 1px at 11% 64%, rgba(255,255,255,.32), transparent),
+        radial-gradient(2px 2px at 26% 73%, rgba(255,255,210,.52), transparent),
+        radial-gradient(1px 1px at 48% 81%, rgba(255,255,255,.42), transparent),
+        radial-gradient(1.5px 1.5px at 63% 69%, rgba(190,255,255,.55), transparent),
+        radial-gradient(1px 1px at 77% 83%, rgba(255,255,255,.32), transparent);
+    }
+
+    .app {
+      width: 100%; height: 100dvh;
+      display: grid; place-items: center;
+      padding:
+        max(8px, env(safe-area-inset-top))
+        max(8px, env(safe-area-inset-right))
+        max(8px, env(safe-area-inset-bottom))
+        max(8px, env(safe-area-inset-left));
+    }
+
+    /* ── BOOK ─────────────────────────────────────────────── */
+    /* Multi-ring rainbow glow acts as the "cover frame" */
+    .book {
+      width: min(92vw, 800px);
+      height: min(92dvh, 1040px);
+      max-height: calc(100dvh - 16px);
+      position: relative;
+      border-radius: var(--page-r);
+      background: var(--paper);
+      overflow: hidden;
+      box-shadow:
+        0 0 0 3px rgba(255, 107, 107, .88),
+        0 0 0 6px rgba(255, 217, 61, .78),
+        0 0 0 9px rgba(107, 203, 119, .68),
+        0 0 0 12px rgba(77, 150, 255, .52),
+        0 0 0 15px rgba(192, 132, 252, .38),
+        0 22px 72px rgba(0, 0, 0, .68),
+        0 8px 30px rgba(80, 40, 160, .48),
+        inset 0 1px 0 rgba(255, 255, 255, .55);
+    }
+
+    /* ── PAGES ────────────────────────────────────────────── */
+    .page {
+      position: absolute; inset: 0;
+      border-radius: var(--page-r);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      background: var(--paper);
+      /* inactive: shifted off-screen right */
+      opacity: 0;
+      transform: translateX(100%);
+      pointer-events: none;
+      will-change: transform, opacity;
+      z-index: 0;
+    }
+
+    .page.is-active {
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 1;
+    }
+
+    /* ── IMAGE AREA ───────────────────────────────────────── */
+    .picture {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    .picture img {
+      width: 100%; height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center center;
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Gradient fade: image blends into the text area below */
+    .picture::after {
+      content: ""; position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 96px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255, 248, 237, .65) 52%,
+        var(--paper) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* ── TEXT AREA ────────────────────────────────────────── */
+    .phrase {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 2px clamp(16px, 3.8vmin, 38px) clamp(34px, 6.2vmin, 58px);
+      font-size: clamp(19px, 3.2vmin, 34px);
+      font-weight: 800;
+      line-height: 1.42;
+      text-align: center;
+      overflow-wrap: anywhere;
+      letter-spacing: -0.01em;
+    }
+
+    .page.has-long-text .phrase {
+      font-size: clamp(16px, 2.7vmin, 28px);
+      line-height: 1.46;
+    }
+
+    .page.has-extra-long-text .phrase {
+      font-size: clamp(14px, 2.2vmin, 23px);
+      line-height: 1.52;
+      text-align: left;
+    }
+
+    /* ── COVER PAGE ───────────────────────────────────────── */
+    .page.is-cover {
+      background: #09071e;
+    }
+
+    /* Cover image fills the entire page */
+    .page.is-cover .picture {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--page-r);
+      flex: unset;
+      background: #09071e;
+    }
+
+    /* Dramatic dark gradient for title legibility */
+    .page.is-cover .picture::after {
+      height: 58%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(6, 4, 20, .12) 22%,
+        rgba(6, 4, 20, .60) 58%,
+        rgba(6, 4, 20, .92) 100%
+      );
+    }
+
+    /* Title overlaid on gradient */
+    .page.is-cover .phrase {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: transparent;
+      color: #fff;
+      font-size: clamp(26px, 5.2vmin, 60px);
+      font-weight: 800;
+      line-height: 1.14;
+      letter-spacing: -.022em;
+      text-align: center;
+      padding: 16px clamp(20px, 4vmin, 42px) clamp(38px, 7.2vmin, 74px);
+      text-shadow:
+        0 2px 8px rgba(0, 0, 0, .75),
+        0 0 32px rgba(80, 40, 200, .52),
+        0 1px 2px rgba(0, 0, 0, .9);
+    }
+
+    /* ── PROGRESS DOTS ────────────────────────────────────── */
+    .progress {
+      position: absolute;
+      left: 50%;
+      bottom: clamp(10px, 2.2vmin, 20px);
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 6px;
+      z-index: 4; pointer-events: none;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: rgba(62, 34, 8, .20);
+      border: 1.5px solid rgba(62, 34, 8, .22);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+      transition: width 220ms ease, background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    /* Dots on dark (cover) background */
+    .progress.on-cover .dot {
+      background: rgba(255, 255, 255, .32);
+      border-color: rgba(255, 255, 255, .42);
+    }
+
+    .dot.is-active {
+      width: 26px;
+      background: var(--ink);
+      border-color: var(--ink);
+      box-shadow: 0 0 8px rgba(62, 34, 8, .28), 0 1px 3px rgba(0, 0, 0, .18);
+    }
+
+    .progress.on-cover .dot.is-active {
+      background: #fff;
+      border-color: #fff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, .50), 0 1px 3px rgba(0, 0, 0, .20);
+    }
+
+    /* ── PAGE COUNTER ─────────────────────────────────────── */
+    .status {
+      position: absolute;
+      top: clamp(10px, 2vmin, 18px);
+      right: clamp(12px, 2.5vmin, 22px);
+      color: var(--muted);
+      font-size: clamp(11px, 1.7vmin, 15px);
+      font-weight: 700;
+      letter-spacing: .05em;
+      z-index: 4; pointer-events: none;
+      transition: color 200ms ease;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 440px) {
+      :root { --page-r: 18px; }
+      .book { width: calc(100vw - 10px); height: calc(100dvh - 10px); }
+      .phrase { padding-bottom: 32px; }
+    }
+
+    @media (orientation: landscape) and (max-height: 600px) {
+      .book { width: min(60vw, 700px); height: calc(100dvh - 12px); }
+      .phrase { font-size: clamp(14px, 2.5vmin, 22px); padding-bottom: 28px; }
+      .page.has-extra-long-text .phrase { font-size: clamp(12px, 2vmin, 18px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="app" aria-label="Story book">
+    <section class="book" id="book" aria-live="polite"></section>
+  </main>
+
+  <script type="application/json" id="story-data">
+{
+  "title": "Đường Sao Trên Sân Thượng",
+  "pages": [
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/cover/cover.png",
+      "text": "Đường Sao Trên Sân Thượng",
+      "kind": "cover",
+      "label": "cover",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/scenes/01-doan-1.png",
+      "text": "Mai dắt Bin lên sân thượng. Mẹ mang theo một tấm chiếu nhỏ.",
+      "kind": "story",
+      "label": "page 1",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/scenes/02-doan-2.png",
+      "text": "Trời tối xanh. Những vì sao sáng lên như đèn nhỏ.",
+      "kind": "story",
+      "label": "page 2",
+      "width": 1672,
+      "height": 940
+    },
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/scenes/03-doan-3.png",
+      "text": "Mai nối các ngôi sao bằng ngón tay. Bin nói đó là con đường bạc.",
+      "kind": "story",
+      "label": "page 3",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/scenes/04-doan-4.png",
+      "text": "Mẹ kể rằng người xưa nhìn sao để tìm đường khi đi xa.",
+      "kind": "story",
+      "label": "page 4",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/scenes/05-doan-5.png",
+      "text": "Mai chỉ ngôi sao sáng nhất. Bin bảo đó là đèn dẫn lối.",
+      "kind": "story",
+      "label": "page 5",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/scenes/06-doan-6.png",
+      "text": "Ba mẹ con cùng im lặng ngắm trời. Gió thổi mát nhẹ.",
+      "kind": "story",
+      "label": "page 6",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "image": "../../generated-story-images/duong-sao-tren-san-thuong/scenes/07-doan-7.png",
+      "text": "Bin ngủ rất nhanh. Mai mơ thấy mình đi trên con đường sao.",
+      "kind": "story",
+      "label": "page 7",
+      "width": 1672,
+      "height": 941
+    }
+  ]
+}
+  </script>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const data = JSON.parse(document.getElementById("story-data").textContent);
+      const pages = Array.isArray(data.pages) ? data.pages : [];
+      const book = document.getElementById("book");
+      let index = 0;
+      let startX = 0;
+      let startY = 0;
+      let tracking = false;
+      let animating = false;
+      let initialized = false;
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const ENTER_MS = reducedMotion ? 0 : 400;
+      const EXIT_MS  = reducedMotion ? 0 : 290;
+
+      document.title = data.title || "Story Book";
+
+      /* ── Block all non-swipe interaction ─────────────────── */
+      const block = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      };
+
+      [
+        "click", "dblclick", "auxclick", "contextmenu", "dragstart",
+        "selectstart", "copy", "cut", "paste", "wheel",
+        "gesturestart", "gesturechange", "gestureend"
+      ].forEach((type) => {
+        window.addEventListener(type, block, { capture: true, passive: false });
+      });
+      window.addEventListener("keydown",   block, { capture: true, passive: false });
+      window.addEventListener("touchmove", block, { capture: true, passive: false });
+
+      /* ── Indicators ──────────────────────────────────────── */
+      const updateIndicators = () => {
+        const allPageEls = [...document.querySelectorAll(".page")];
+        allPageEls.forEach((el, i) =>
+          el.setAttribute("aria-hidden", i === index ? "false" : "true")
+        );
+        document.querySelectorAll(".dot").forEach((dot, i) =>
+          dot.classList.toggle("is-active", i === index)
+        );
+
+        const isCover = pages[index] && pages[index].kind === "cover";
+        const progress = document.querySelector(".progress");
+        if (progress) progress.classList.toggle("on-cover", isCover);
+
+        const statusEl = document.querySelector(".status");
+        if (statusEl) {
+          statusEl.textContent = `${index + 1} / ${pages.length}`;
+          statusEl.style.color = isCover ? "rgba(255,255,255,.42)" : "";
+        }
+      };
+
+      /* ── Page transition ─────────────────────────────────── */
+      const setPage = (nextIndex) => {
+        if (!pages.length) return;
+        if (animating) return;
+
+        const safeNext = Math.max(0, Math.min(pages.length - 1, nextIndex));
+        if (safeNext === index && initialized) return;
+
+        const prevIndex = index;
+        index = safeNext;
+        const allPageEls = [...document.querySelectorAll(".page")];
+
+        if (!initialized || ENTER_MS === 0) {
+          /* Direct switch — no animation (initial load or reduced motion) */
+          allPageEls.forEach((el, i) => {
+            el.style.cssText = "";
+            el.classList.toggle("is-active", i === index);
+          });
+          initialized = true;
+          updateIndicators();
+          return;
+        }
+
+        animating = true;
+        const forward  = safeNext > prevIndex;
+        const prevEl   = allPageEls[prevIndex];
+        const nextEl   = allPageEls[safeNext];
+        const exitDir  = forward ? "-105%" : "105%";
+        const enterDir = forward ? "105%"  : "-105%";
+
+        /* Exit current page */
+        if (prevEl) {
+          prevEl.classList.remove("is-active");
+          prevEl.style.cssText =
+            `transition: transform ${EXIT_MS}ms cubic-bezier(0.4,0,1,1), opacity ${EXIT_MS}ms ease;` +
+            `transform: translateX(${exitDir}); opacity: 0; z-index: 2;`;
+        }
+
+        /* Enter next page from the opposite side */
+        if (nextEl) {
+          nextEl.style.cssText =
+            `transition: none; transform: translateX(${enterDir}); opacity: 0; z-index: 3;`;
+          nextEl.offsetHeight; /* force reflow */
+          nextEl.style.cssText =
+            `transition: transform ${ENTER_MS}ms cubic-bezier(0.22,1,0.36,1), opacity ${Math.round(ENTER_MS * 0.7)}ms ease;` +
+            `transform: translateX(0); opacity: 1; z-index: 3;`;
+          nextEl.classList.add("is-active");
+        }
+
+        updateIndicators();
+
+        setTimeout(() => {
+          if (prevEl) prevEl.style.cssText = "";
+          if (nextEl) nextEl.style.cssText = "";
+          animating = false;
+        }, ENTER_MS + 30);
+      };
+
+      /* ── Build DOM ───────────────────────────────────────── */
+      const render = () => {
+        book.innerHTML = "";
+
+        pages.forEach((page, pageIndex) => {
+          const article = document.createElement("article");
+          const text = page.text || page.phrase || "";
+          article.className = page.kind === "cover" ? "page is-cover" : "page";
+          article.classList.toggle("has-long-text",       text.length > 70);
+          article.classList.toggle("has-extra-long-text", text.length > 115);
+          article.setAttribute("aria-label", `Trang ${pageIndex + 1}`);
+          article.setAttribute("aria-hidden", "true");
+
+          const picture = document.createElement("div");
+          picture.className = "picture";
+
+          const img = document.createElement("img");
+          img.alt = "";
+          img.decoding = "async";
+          img.draggable = false;
+          if (page.width)  img.width  = Number(page.width);
+          if (page.height) img.height = Number(page.height);
+          img.src = page.image;
+          picture.appendChild(img);
+
+          const phrase = document.createElement("div");
+          phrase.className = "phrase";
+          phrase.textContent = text;
+
+          article.append(picture, phrase);
+          book.appendChild(article);
+        });
+
+        /* Status counter */
+        const statusEl = document.createElement("div");
+        statusEl.className = "status";
+        book.appendChild(statusEl);
+
+        /* Progress dots */
+        const progress = document.createElement("div");
+        progress.className = "progress";
+        pages.forEach(() => {
+          const dot = document.createElement("span");
+          dot.className = "dot";
+          progress.appendChild(dot);
+        });
+        book.appendChild(progress);
+
+        index = 0;
+        initialized = false;
+        setPage(0);
+      };
+
+      /* ── Swipe detection ─────────────────────────────────── */
+      const applySwipe = (endX, endY) => {
+        const dx = endX - startX;
+        const dy = endY - startY;
+        if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.35) {
+          setPage(index + (dx < 0 ? 1 : -1));
+        }
+      };
+
+      if ("PointerEvent" in window) {
+        window.addEventListener("pointerdown", (event) => {
+          startX = event.clientX; startY = event.clientY;
+          tracking = true; event.preventDefault();
+        }, { capture: true, passive: false });
+
+        window.addEventListener("pointerup", (event) => {
+          if (!tracking) return block(event);
+          tracking = false; applySwipe(event.clientX, event.clientY);
+          return block(event);
+        }, { capture: true, passive: false });
+
+        window.addEventListener("pointercancel", () => { tracking = false; },
+          { capture: true, passive: false });
+      } else {
+        window.addEventListener("touchstart", (event) => {
+          const t = event.touches[0];
+          if (!t) return block(event);
+          startX = t.clientX; startY = t.clientY;
+          tracking = true; event.preventDefault();
+        }, { capture: true, passive: false });
+
+        window.addEventListener("touchend", (event) => {
+          const t = event.changedTouches[0];
+          if (!tracking || !t) return block(event);
+          tracking = false; applySwipe(t.clientX, t.clientY);
+          return block(event);
+        }, { capture: true, passive: false });
+
+        window.addEventListener("touchcancel", () => { tracking = false; },
+          { capture: true, passive: false });
+      }
+
+      render();
+      window.scrollTo(0, 0);
+    })();
+  </script>
+</body>
+</html>

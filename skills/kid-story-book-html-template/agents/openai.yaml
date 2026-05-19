@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kid Story Book HTML"
+  short_description: "Render swipe-only kids story HTML"
+  default_prompt: "Use $kid-story-book-html-template to render a swipe-only HTML story book with an optional cover from generated images and full story text."
