@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T02:24:09.655296+00:00",
+  "generatedAt": "2026-05-20T02:41:29.069038+00:00",
   "stories": [
     {
       "slug": "ban-do-trong-san-truong",
@@ -50,6 +50,16 @@
       "hasHtmlBook": true,
       "hasAudio": true,
       "readingLevel": "Lớp 1"
+    },
+    {
+      "slug": "hai-ban-huong-dao-sinh-trong-rung",
+      "title": "Hai Bạn Hướng Đạo Sinh Trong Rừng",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 2"
     },
     {
       "slug": "na-va-ken-di-so-thu",

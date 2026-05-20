@@ -1,0 +1,127 @@
+{
+  "story_path": "assets/stories/hai-ban-huong-dao-sinh-trong-rung.md",
+  "title": "Hai Bạn Hướng Đạo Sinh Trong Rừng",
+  "story_slug": "hai-ban-huong-dao-sinh-trong-rung",
+  "style": "Vietnamese children's picture book illustration, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese forest environments, no scary mood, no text in image",
+  "output_dir": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Minh",
+      "description": "Bạn hướng đạo sinh 8 tuổi, dũng cảm và cẩn thận, giỏi đọc hướng mặt trời.",
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/characters/prompts/01-minh.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/characters/01-minh.png"
+    },
+    {
+      "index": 2,
+      "name": "Tuấn",
+      "description": "Bạn hướng đạo sinh 8 tuổi, thông minh và giỏi đọc dấu vết trên đất và cây.",
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/characters/prompts/02-tuan.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/characters/02-tuan.png"
+    },
+    {
+      "index": 3,
+      "name": "Lan",
+      "description": "Bạn nhỏ 7 tuổi, bị lạc và bị thương ở chân khi đi theo con bướm trong rừng.",
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/characters/prompts/03-lan.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/characters/03-lan.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Lều trại trong rừng, buổi sáng.",
+      "content": "Minh và Tuấn mặc đồng phục hướng đạo sinh, buộc khăn quàng xanh và đeo ba lô. Hai bạn hào hứng bước vào khu rừng xanh gần trại để tập kỹ năng.",
+      "characters_present": [
+        "Minh",
+        "Tuấn"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Lối mòn trong rừng, Tuấn cúi xuống.",
+      "content": "Tuấn chỉ vào dấu chân in trên đất ẩm và nói: \"Dấu con nai đi qua đêm qua đó.\" Minh nhìn kỹ các dấu vết, gật đầu và học theo bạn.",
+      "characters_present": [
+        "Minh",
+        "Tuấn"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Giữa rừng cây xanh.",
+      "content": "Bỗng nhiên, hai bạn nghe tiếng khóc nhỏ sau bụi cây. Hai bạn chạy tới và thấy bạn Lan đang ngồi ôm chân, nước mắt đỏ hoe vì đau và sợ.",
+      "characters_present": [
+        "Lan"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Cạnh gốc cây lớn, Minh mở ba lô.",
+      "content": "Minh lấy hộp sơ cứu ra, nhẹ nhàng rửa vết thương bằng nước sạch rồi băng vải gạc lại cẩn thận. Lan nín khóc và nhìn Minh với đôi mắt biết ơn.",
+      "characters_present": [
+        "Minh",
+        "Lan"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Ba bạn ngồi nghỉ dưới gốc cây.",
+      "content": "Tuấn hỏi Lan đến từ đâu. Lan kể bạn đi theo con bướm đẹp và bị lạc. Minh và Tuấn quyết tâm dùng kỹ năng hướng đạo để giúp Lan về nhà.",
+      "characters_present": [
+        "Minh",
+        "Tuấn",
+        "Lan"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Trên lối mòn, Tuấn đọc dấu vết.",
+      "content": "Tuấn cúi xuống đất, tìm thấy dấu giày nhỏ của Lan và những cành lá bị bẻ gãy. Tuấn nói: \"Đây là đường Lan đã đi, mình đi ngược lại là ra rừng!\"",
+      "characters_present": [
+        "Tuấn",
+        "Lan"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Giữa rừng, Minh nhìn lên tán lá.",
+      "content": "Minh thấy ánh nắng chiếu qua kẽ lá và nhớ bài học: \"Buổi sáng, mặt trời ở hướng đông.\" Minh xác định hướng ra. Tuấn đỡ Lan bước nhẹ nhàng. Ba bạn cùng tiến.",
+      "characters_present": [
+        "Minh",
+        "Tuấn",
+        "Lan"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/07-doan-7.png"
+    },
+    {
+      "index": 8,
+      "setting": "Bìa rừng, bố mẹ Lan đang đứng đợi.",
+      "content": "Ba bạn ra đến bìa rừng. Bố mẹ Lan chạy ra ôm chầm lấy con và cảm ơn Minh, Tuấn. Hai bạn cười: \"Kỹ năng hướng đạo giúp ích được mọi người!\"",
+      "characters_present": [
+        "Minh",
+        "Tuấn",
+        "Lan"
+      ],
+      "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/prompts/08-doan-8.md",
+      "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/scenes/08-doan-8.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/hai-ban-huong-dao-sinh-trong-rung/story-image-manifest.json"
+}
