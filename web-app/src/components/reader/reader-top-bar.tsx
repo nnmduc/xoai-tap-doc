@@ -1,9 +1,20 @@
 interface Props {
   title: string
   onBack: () => void
+  onDecreaseFontSize: () => void
+  onIncreaseFontSize: () => void
+  canDecrease: boolean
+  canIncrease: boolean
 }
 
-export function ReaderTopBar({ title, onBack }: Props) {
+export function ReaderTopBar({
+  title,
+  onBack,
+  onDecreaseFontSize,
+  onIncreaseFontSize,
+  canDecrease,
+  canIncrease,
+}: Props) {
   return (
     <header className="h-[60px] flex-shrink-0 flex items-center gap-3 px-3 bg-white border-b-2 border-brand-border shadow-sm z-10">
       <button
@@ -37,6 +48,41 @@ export function ReaderTopBar({ title, onBack }: Props) {
         <h1 className="font-heading font-bold text-[16px] text-brand-text leading-tight truncate">
           {title}
         </h1>
+      </div>
+
+      {/* Font size controls — right-aligned so they stay out of the reading area */}
+      <div className="flex-shrink-0 flex items-center gap-1.5">
+        <button
+          onClick={onDecreaseFontSize}
+          disabled={!canDecrease}
+          aria-label="Chữ nhỏ hơn"
+          className="w-9 h-9 flex items-center justify-center
+                     bg-brand-bg border-[2px] border-brand-border rounded-[10px]
+                     cursor-pointer transition-all duration-150 outline-none
+                     hover:bg-blue-50 hover:border-brand-primary
+                     active:scale-95
+                     disabled:opacity-35 disabled:cursor-not-allowed disabled:active:scale-100
+                     focus-visible:ring-2 focus-visible:ring-brand-primary"
+        >
+          <span className="font-heading font-bold text-brand-primary leading-none select-none"
+                style={{ fontSize: '11px' }}>A−</span>
+        </button>
+
+        <button
+          onClick={onIncreaseFontSize}
+          disabled={!canIncrease}
+          aria-label="Chữ to hơn"
+          className="w-9 h-9 flex items-center justify-center
+                     bg-brand-bg border-[2px] border-brand-border rounded-[10px]
+                     cursor-pointer transition-all duration-150 outline-none
+                     hover:bg-blue-50 hover:border-brand-primary
+                     active:scale-95
+                     disabled:opacity-35 disabled:cursor-not-allowed disabled:active:scale-100
+                     focus-visible:ring-2 focus-visible:ring-brand-primary"
+        >
+          <span className="font-heading font-bold text-brand-primary leading-none select-none"
+                style={{ fontSize: '14px' }}>A+</span>
+        </button>
       </div>
     </header>
   )
