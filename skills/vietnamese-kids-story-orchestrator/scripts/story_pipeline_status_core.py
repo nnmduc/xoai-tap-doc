@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[3]
 STORIES_DIR = ROOT / "assets" / "stories"
 IMAGES_DIR = ROOT / "assets" / "generated-story-images"
 BOOKS_DIR = ROOT / "assets" / "generated-story-books"
+AUDIO_DIR = ROOT / "assets" / "generated-story-audio"
 STATUS_DIR = ROOT / "assets" / "story-pipeline-status"
 MAX_STORY_PAGES = 9
 
@@ -129,6 +130,14 @@ def media_status(slug: str | None) -> dict[str, Any]:
     }
 
 
+def audio_status(slug: str | None) -> dict[str, Any]:
+    if not slug:
+        return {"exists": False, "count": 0, "dir": None}
+    audio_dir = AUDIO_DIR / slug
+    mp3s = sorted(audio_dir.glob("*.mp3")) if audio_dir.exists() else []
+    return {"exists": bool(mp3s), "count": len(mp3s), "dir": str(audio_dir)}
+
+
 def book_status(slug: str | None) -> dict[str, Any]:
     path = BOOKS_DIR / slug / "index.html" if slug else None
     return {"exists": bool(path and path.exists()), "path": str(path) if path else None}
@@ -171,9 +180,10 @@ def inspect_one(story_path: Path | None, fallback_slug: str | None) -> dict[str,
     story = story_status(story_path, fallback_slug)
     slug = story.get("slug") or fallback_slug
     media = media_status(str(slug) if slug else None)
+    audio = audio_status(str(slug) if slug else None)
     book = book_status(str(slug) if slug else None)
     state = determine_state(story, media, book)
-    return {"state": state, "story": story, "media": media, "book": book, "next_actions": next_actions(state, story, media, book)}
+    return {"state": state, "story": story, "media": media, "audio": audio, "book": book, "next_actions": next_actions(state, story, media, book)}
 
 
 def write_status(report: dict[str, Any]) -> Path:

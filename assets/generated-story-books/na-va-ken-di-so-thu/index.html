@@ -262,6 +262,45 @@
       transition: color 200ms ease;
     }
 
+    /* ── AUDIO BUTTON ────────────────────────────────────── */
+    .audio-btn {
+      position: absolute;
+      bottom: clamp(10px, 2.2vmin, 20px);
+      left: clamp(12px, 2.5vmin, 22px);
+      width: clamp(36px, 6vmin, 46px);
+      height: clamp(36px, 6vmin, 46px);
+      border-radius: 50%;
+      background: rgba(62, 34, 8, .07);
+      border: 1.5px solid rgba(62, 34, 8, .18);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 4;
+      color: var(--ink);
+      pointer-events: all;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 150ms ease, transform 100ms ease;
+      padding: 0;
+    }
+
+    .audio-btn:active { transform: scale(0.90); }
+
+    .audio-btn[aria-pressed="true"] {
+      background: rgba(62, 34, 8, .15);
+      border-color: rgba(62, 34, 8, .38);
+    }
+
+    .page.is-cover .audio-btn {
+      color: rgba(255, 255, 255, .85);
+      background: rgba(255, 255, 255, .12);
+      border-color: rgba(255, 255, 255, .28);
+    }
+
+    .page.is-cover .audio-btn[aria-pressed="true"] {
+      background: rgba(255, 255, 255, .24);
+      border-color: rgba(255, 255, 255, .55);
+    }
+
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 440px) {
       :root { --page-r: 18px; }
@@ -291,7 +330,8 @@
       "kind": "cover",
       "label": "cover",
       "width": 1024,
-      "height": 1536
+      "height": 1536,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-00.mp3"
     },
     {
       "image": "../../generated-story-images/na-va-ken-di-so-thu/scenes/01-doan-1.png",
@@ -299,7 +339,8 @@
       "kind": "story",
       "label": "page 1",
       "width": 1536,
-      "height": 1024
+      "height": 1024,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-01.mp3"
     },
     {
       "image": "../../generated-story-images/na-va-ken-di-so-thu/scenes/02-doan-2.png",
@@ -307,7 +348,8 @@
       "kind": "story",
       "label": "page 2",
       "width": 1536,
-      "height": 1024
+      "height": 1024,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-02.mp3"
     },
     {
       "image": "../../generated-story-images/na-va-ken-di-so-thu/scenes/03-doan-3.png",
@@ -315,7 +357,8 @@
       "kind": "story",
       "label": "page 3",
       "width": 1536,
-      "height": 1024
+      "height": 1024,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-03.mp3"
     },
     {
       "image": "../../generated-story-images/na-va-ken-di-so-thu/scenes/04-doan-4.png",
@@ -323,7 +366,8 @@
       "kind": "story",
       "label": "page 4",
       "width": 1536,
-      "height": 1024
+      "height": 1024,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-04.mp3"
     },
     {
       "image": "../../generated-story-images/na-va-ken-di-so-thu/scenes/05-doan-5.png",
@@ -331,7 +375,8 @@
       "kind": "story",
       "label": "page 5",
       "width": 1536,
-      "height": 1024
+      "height": 1024,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-05.mp3"
     },
     {
       "image": "../../generated-story-images/na-va-ken-di-so-thu/scenes/06-doan-6.png",
@@ -339,7 +384,8 @@
       "kind": "story",
       "label": "page 6",
       "width": 1536,
-      "height": 1024
+      "height": 1024,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-06.mp3"
     },
     {
       "image": "../../generated-story-images/na-va-ken-di-so-thu/scenes/07-doan-7.png",
@@ -347,7 +393,8 @@
       "kind": "story",
       "label": "page 7",
       "width": 1536,
-      "height": 1024
+      "height": 1024,
+      "audio": "../../generated-story-audio/na-va-ken-di-so-thu/page-07.mp3"
     }
   ]
 }
@@ -373,8 +420,36 @@
 
       document.title = data.title || "Story Book";
 
+      /* ── Audio player ────────────────────────────────────── */
+      let activeAudio = null;
+      let activeBtnEl = null;
+
+      const stopCurrentAudio = () => {
+        if (activeAudio) { activeAudio.pause(); activeAudio.currentTime = 0; }
+        if (activeBtnEl) activeBtnEl.setAttribute("aria-pressed", "false");
+        activeAudio = null;
+        activeBtnEl = null;
+      };
+
+      const handleAudioBtn = (btn, src) => {
+        if (activeBtnEl === btn && activeAudio && !activeAudio.paused) {
+          stopCurrentAudio();
+          return;
+        }
+        stopCurrentAudio();
+        const audio = new Audio(src);
+        activeAudio = audio;
+        activeBtnEl = btn;
+        btn.setAttribute("aria-pressed", "true");
+        audio.play().catch(() => stopCurrentAudio());
+        audio.addEventListener("ended", stopCurrentAudio);
+      };
+
       /* ── Block all non-swipe interaction ─────────────────── */
+      const isAudioBtn = (event) => event.target && event.target.closest && !!event.target.closest(".audio-btn");
+
       const block = (event) => {
+        if (isAudioBtn(event)) return;
         event.preventDefault();
         event.stopPropagation();
         return false;
@@ -415,6 +490,7 @@
       const setPage = (nextIndex) => {
         if (!pages.length) return;
         if (animating) return;
+        stopCurrentAudio();
 
         const safeNext = Math.max(0, Math.min(pages.length - 1, nextIndex));
         if (safeNext === index && initialized) return;
@@ -499,6 +575,24 @@
           phrase.textContent = text;
 
           article.append(picture, phrase);
+
+          if (page.audio) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "audio-btn";
+            btn.setAttribute("aria-label", "Nghe đọc");
+            btn.setAttribute("aria-pressed", "false");
+            btn.innerHTML =
+              '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+              '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>' +
+              '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>' +
+              '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>' +
+              '</svg>';
+            const audioSrc = page.audio;
+            btn.addEventListener("click", () => handleAudioBtn(btn, audioSrc));
+            article.appendChild(btn);
+          }
+
           book.appendChild(article);
         });
 
@@ -533,11 +627,13 @@
 
       if ("PointerEvent" in window) {
         window.addEventListener("pointerdown", (event) => {
+          if (isAudioBtn(event)) return;
           startX = event.clientX; startY = event.clientY;
           tracking = true; event.preventDefault();
         }, { capture: true, passive: false });
 
         window.addEventListener("pointerup", (event) => {
+          if (isAudioBtn(event)) return;
           if (!tracking) return block(event);
           tracking = false; applySwipe(event.clientX, event.clientY);
           return block(event);
@@ -547,6 +643,7 @@
           { capture: true, passive: false });
       } else {
         window.addEventListener("touchstart", (event) => {
+          if (isAudioBtn(event)) return;
           const t = event.touches[0];
           if (!t) return block(event);
           startX = t.clientX; startY = t.clientY;
@@ -554,6 +651,7 @@
         }, { capture: true, passive: false });
 
         window.addEventListener("touchend", (event) => {
+          if (isAudioBtn(event)) return;
           const t = event.changedTouches[0];
           if (!tracking || !t) return block(event);
           tracking = false; applySwipe(t.clientX, t.clientY);

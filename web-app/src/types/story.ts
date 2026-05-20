@@ -5,6 +5,8 @@ export interface StoryEntry {
   themes: string[]
   coverPath: string
   hasHtmlBook: boolean
+  hasAudio?: boolean
+  readingLevel?: string
 }
 
 export interface StoriesManifest {

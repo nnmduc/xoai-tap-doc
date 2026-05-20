@@ -24,6 +24,7 @@ def resolve_story_path(args: argparse.Namespace) -> tuple[Path | None, str | Non
 def print_text(report: dict) -> None:
     story = report["story"]
     media = report["media"]
+    audio = report.get("audio", {})
     book = report["book"]
     print(f"State: {report['state']}")
     print(f"Title: {story.get('title') or '(unknown)'}")
@@ -31,6 +32,8 @@ def print_text(report: dict) -> None:
     print(f"Story: {story.get('path') or '(missing)'}")
     print(f"Media manifest: {media.get('manifest_path') or '(missing)'}")
     print(f"Media: {media.get('existing_count', 0)}/{media.get('expected_count', 0)} files present")
+    audio_label = f"{audio.get('count', 0)} MP3 file(s)" if audio.get("exists") else "none (optional)"
+    print(f"Audio: {audio_label}")
     print(f"HTML book: {book.get('path') or '(unknown)'} ({'exists' if book.get('exists') else 'missing'})")
     if story.get("issues"):
         print("Story issues:")

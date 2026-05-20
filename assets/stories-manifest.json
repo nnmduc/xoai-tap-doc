@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-19T15:01:34.856305+00:00",
+  "generatedAt": "2026-05-20T02:24:09.655296+00:00",
   "stories": [
     {
       "slug": "ban-do-trong-san-truong",
@@ -7,7 +7,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/ban-do-trong-san-truong/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     },
     {
       "slug": "ban-moi-o-san-truong",
@@ -15,7 +17,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/ban-moi-o-san-truong/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     },
     {
       "slug": "canh-cua-trong-tu-sach",
@@ -23,7 +27,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/canh-cua-trong-tu-sach/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     },
     {
       "slug": "chuyen-di-tim-cau-vong",
@@ -31,7 +37,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/chuyen-di-tim-cau-vong/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     },
     {
       "slug": "duong-sao-tren-san-thuong",
@@ -39,7 +47,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/duong-sao-tren-san-thuong/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     },
     {
       "slug": "na-va-ken-di-so-thu",
@@ -47,7 +57,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/na-va-ken-di-so-thu/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     },
     {
       "slug": "thuyen-giay-ra-khoi",
@@ -55,7 +67,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/thuyen-giay-ra-khoi/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     },
     {
       "slug": "xoai-va-bo-cuu-chim-bo-cau",
@@ -63,7 +77,9 @@
       "summary": "",
       "themes": [],
       "coverPath": "/generated-story-images/xoai-va-bo-cuu-chim-bo-cau/cover/cover.png",
-      "hasHtmlBook": true
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 1"
     }
   ]
 }

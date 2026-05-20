@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[3]
 SKILL_DIR = Path(__file__).resolve().parents[1]
 TEMPLATE_PATH = SKILL_DIR / "assets" / "story-book-template.html"
 DEFAULT_OUTPUT_ROOT = ROOT / "assets" / "generated-story-books"
+AUDIO_DIR = ROOT / "assets" / "generated-story-audio"
 MAX_STORY_PAGES = 9
 
 
@@ -127,6 +128,16 @@ def pages_from_story_json(data: dict[str, Any], image_root: str | None) -> list[
     return pages
 
 
+def audio_path_for_page(slug: str, page_index: int, output_path: Path, absolute: bool) -> str | None:
+    """Return path to page MP3 relative to the output HTML, or None if missing."""
+    mp3 = AUDIO_DIR / slug / f"page-{page_index:02d}.mp3"
+    if not mp3.exists():
+        return None
+    if absolute:
+        return mp3.resolve().as_posix()
+    return os.path.relpath(mp3.resolve(), output_path.parent.resolve())
+
+
 def render(input_path: Path, output_path: Path | None, image_root: str | None, absolute: bool, allow_missing_images: bool) -> tuple[Path, list[str]]:
     data = load_json(input_path)
     slug = safe_slug(str(data.get("story_slug") or data.get("slug") or slug_from_path(input_path)))
@@ -149,6 +160,12 @@ def render(input_path: Path, output_path: Path | None, image_root: str | None, a
     for page in pages:
         if not is_web_url(page["image"]):
             page["image"] = to_repo_relative(page["image"], final_output, absolute)
+
+    # Attach audio paths where MP3 files exist (optional — no audio = no button in template)
+    for page_index, page in enumerate(pages):
+        audio = audio_path_for_page(slug, page_index, final_output, absolute)
+        if audio:
+            page["audio"] = audio
 
     warnings = missing_image_warnings + dimension_warnings(pages)
 

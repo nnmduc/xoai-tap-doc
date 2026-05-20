@@ -47,6 +47,11 @@ export function BookCard({ story, onClick }: Props) {
             Sắp có
           </span>
         )}
+        {story.hasAudio && (
+          <span className="absolute bottom-2 left-2 bg-black/50 text-white text-[11px] px-1.5 py-0.5 rounded-full border border-white/20 leading-none select-none">
+            🔊
+          </span>
+        )}
       </div>
 
       {/* Info */}
@@ -58,7 +63,7 @@ export function BookCard({ story, onClick }: Props) {
           <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
           </svg>
-          Lớp 1
+          {story.readingLevel ?? 'Lớp 1'}
         </span>
       </div>
     </motion.div>
