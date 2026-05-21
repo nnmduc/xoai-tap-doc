@@ -26,9 +26,11 @@ const screenVariants = {
 interface Props {
   story: StoryEntry
   onBack: () => void
+  audioEnabled: boolean
+  onToggleAudio: () => void
 }
 
-export function ReaderScreen({ story, onBack }: Props) {
+export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Props) {
   const [fontScale, setFontScale] = useState(1.0)
 
   const handleDecrease = () =>
@@ -52,9 +54,11 @@ export function ReaderScreen({ story, onBack }: Props) {
         onIncreaseFontSize={handleIncrease}
         canDecrease={fontScale > FONT_SCALE_MIN}
         canIncrease={fontScale < FONT_SCALE_MAX}
+        audioEnabled={audioEnabled}
+        onToggleAudio={onToggleAudio}
       />
       <WoodenFrame>
-        <StoryIframe story={story} onBack={onBack} fontScale={fontScale} />
+        <StoryIframe story={story} onBack={onBack} fontScale={fontScale} audioEnabled={audioEnabled} />
       </WoodenFrame>
     </motion.div>
   )

@@ -23,9 +23,11 @@ type GradeFilter = (typeof GRADE_FILTERS)[number]['value']
 interface Props {
   stories: StoryEntry[]
   onSelectStory: (story: StoryEntry) => void
+  audioEnabled: boolean
+  onToggleAudio: () => void
 }
 
-export function LibraryScreen({ stories, onSelectStory }: Props) {
+export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAudio }: Props) {
   const prefersReduced = useReducedMotion()
   const [gradeFilter, setGradeFilter] = useState<GradeFilter>(null)
 
@@ -39,7 +41,11 @@ export function LibraryScreen({ stories, onSelectStory }: Props) {
 
   return (
     <div className="flex flex-col min-h-dvh bg-brand-bg">
-      <LibraryHeader storyCount={visibleStories.length} />
+      <LibraryHeader
+        storyCount={visibleStories.length}
+        audioEnabled={audioEnabled}
+        onToggleAudio={onToggleAudio}
+      />
 
       <main className="flex-1 overflow-y-auto px-4 pt-5 pb-8">
         {/* Grade filter chips */}
@@ -89,14 +95,28 @@ export function LibraryScreen({ stories, onSelectStory }: Props) {
         )}
       </main>
 
-      {/* Footer dots */}
-      <div className="flex justify-center items-center gap-2 py-4">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <div
-            key={i}
-            className={`w-2 h-2 rounded-full ${i < visibleStories.length ? 'bg-brand-primary/40' : 'bg-brand-border'}`}
-          />
-        ))}
+      {/* Footer */}
+      <div className="flex flex-col items-center gap-2 py-4">
+        <div className="flex justify-center items-center gap-2">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+              className={`w-2 h-2 rounded-full ${i < visibleStories.length ? 'bg-brand-primary/40' : 'bg-brand-border'}`}
+            />
+          ))}
+        </div>
+        <p className="text-[11px] text-brand-muted font-body text-center">
+          By{' '}
+          <a
+            href="https://www.facebook.com/socthaovat"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-brand-primary transition-colors"
+          >
+            Father
+          </a>{' '}
+          for Xoài with Love ❤️
+        </p>
       </div>
     </div>
   )

@@ -30,9 +30,10 @@ interface Props {
   story: StoryEntry
   onBack: () => void
   fontScale: number
+  audioEnabled: boolean
 }
 
-export function StoryIframe({ story, onBack, fontScale }: Props) {
+export function StoryIframe({ story, onBack, fontScale, audioEnabled }: Props) {
   const [loaded, setLoaded] = useState(false)
   const [timedOut, setTimedOut] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement>(null)
@@ -51,6 +52,19 @@ export function StoryIframe({ story, onBack, fontScale }: Props) {
     styleEl.textContent = buildFontScaleCSS(scale)
   }, [])
 
+  const applyAudioVisibility = useCallback((enabled: boolean) => {
+    const doc = iframeRef.current?.contentDocument
+    if (!doc) return
+
+    let styleEl = doc.getElementById('audio-visibility-override') as HTMLStyleElement | null
+    if (!styleEl) {
+      styleEl = doc.createElement('style')
+      styleEl.id = 'audio-visibility-override'
+      doc.head?.appendChild(styleEl)
+    }
+    styleEl.textContent = enabled ? '' : '.audio-btn { display: none !important; }'
+  }, [])
+
   useEffect(() => {
     setLoaded(false)
     setTimedOut(false)
@@ -63,15 +77,19 @@ export function StoryIframe({ story, onBack, fontScale }: Props) {
     }
   }, [story.slug, story.hasHtmlBook])
 
-  // Apply scale whenever it changes (iframe must already be loaded)
   useEffect(() => {
     if (loaded) applyFontScale(fontScale)
   }, [fontScale, loaded, applyFontScale])
+
+  useEffect(() => {
+    if (loaded) applyAudioVisibility(audioEnabled)
+  }, [audioEnabled, loaded, applyAudioVisibility])
 
   const handleLoad = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
     setLoaded(true)
     applyFontScale(fontScale)
+    applyAudioVisibility(audioEnabled)
   }
 
   if (!story.hasHtmlBook || timedOut) {
