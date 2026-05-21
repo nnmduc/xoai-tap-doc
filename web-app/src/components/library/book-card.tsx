@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import type { StoryEntry } from '@/types/story'
 import { BookCoverImage } from '@/components/shared/book-cover-image'
+import { HeartButton } from '@/components/shared/heart-button'
 
 const cardVariants = {
   hidden: { opacity: 0, y: 28, scale: 0.9 },
@@ -59,12 +60,20 @@ export function BookCard({ story, onClick }: Props) {
         <p className="font-heading font-bold text-[15px] text-brand-text leading-snug line-clamp-2 mb-1.5">
           {story.title}
         </p>
-        <span className="inline-flex items-center gap-1 bg-brand-primary/10 border border-brand-primary/20 rounded-full px-2 py-0.5 font-body text-[11px] font-bold text-brand-primary-dark">
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-          </svg>
-          {story.readingLevel ?? 'Lớp 1'}
-        </span>
+        <div className="flex items-center justify-between">
+          <span className="inline-flex items-center gap-1 bg-brand-primary/10 border border-brand-primary/20 rounded-full px-2 py-0.5 font-body text-[11px] font-bold text-brand-primary-dark">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            {story.readingLevel ?? 'Lớp 1'}
+          </span>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => e.stopPropagation()}
+          >
+            <HeartButton slug={story.slug} size="sm" />
+          </div>
+        </div>
       </div>
     </motion.div>
   )

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { ensureLoaded } from '@/store/hearts-store'
 import type { StoryEntry } from '@/types/story'
 import { LibraryHeader } from './library-header'
 import { BookCard } from './book-card'
@@ -30,6 +31,8 @@ interface Props {
 export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAudio }: Props) {
   const prefersReduced = useReducedMotion()
   const [gradeFilter, setGradeFilter] = useState<GradeFilter>(null)
+
+  useEffect(() => { ensureLoaded() }, [])
 
   const visibleStories =
     gradeFilter === null

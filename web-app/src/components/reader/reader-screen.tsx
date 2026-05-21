@@ -4,6 +4,7 @@ import type { StoryEntry } from '@/types/story'
 import { ReaderTopBar } from './reader-top-bar'
 import { WoodenFrame } from './wooden-frame'
 import { StoryIframe } from './story-iframe'
+import { HeartButton } from '@/components/shared/heart-button'
 
 const FONT_SCALE_MIN = 0.8
 const FONT_SCALE_MAX = 1.4
@@ -60,6 +61,9 @@ export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Pro
       <WoodenFrame>
         <StoryIframe story={story} onBack={onBack} fontScale={fontScale} audioEnabled={audioEnabled} />
       </WoodenFrame>
+      <div className="absolute bottom-5 right-4 z-10 bg-white/80 backdrop-blur-sm rounded-2xl px-2 py-1 shadow-clay border-2 border-brand-border">
+        <HeartButton slug={story.slug} size="md" />
+      </div>
     </motion.div>
   )
 }

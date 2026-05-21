@@ -3,8 +3,12 @@ docs
 plans
 web-app/dist
 web-app/node_modules
+web-app/.env*
+!web-app/.env.example
 .DS_Store
 **/__pycache__/
 *.pyc
 # Local Netlify folder
 .netlify
+
+web-app/xoai-tap-doc-firebase-adminsdk-fbsvc-bc001fcd5e.json
