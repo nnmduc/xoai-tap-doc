@@ -51,10 +51,19 @@ def collect_pages(manifest: dict) -> list[tuple[int, str]]:
     return pages
 
 
-async def speak(text: str, output: Path) -> None:
+async def speak(text: str, output: Path, retries: int = 3, delay: float = 2.0) -> None:
     import edge_tts
-    communicate = edge_tts.Communicate(text, VOICE, rate=RATE)
-    await communicate.save(str(output))
+    for attempt in range(retries):
+        try:
+            communicate = edge_tts.Communicate(text, VOICE, rate=RATE)
+            await communicate.save(str(output))
+            return
+        except Exception as exc:
+            if attempt < retries - 1:
+                print(f"  retry ({attempt + 1}/{retries - 1}) after error: {exc}")
+                await asyncio.sleep(delay * (attempt + 1))
+            else:
+                raise
 
 
 async def generate_for_slug(slug: str, force: bool) -> int:
@@ -74,13 +83,14 @@ async def generate_for_slug(slug: str, force: bool) -> int:
     generated = 0
     for page_index, text in pages:
         out_path = out_dir / f"page-{page_index:02d}.mp3"
-        if out_path.exists() and not force:
+        if out_path.exists() and out_path.stat().st_size > 0 and not force:
             print(f"  skip  {slug}/page-{page_index:02d}.mp3 (exists)")
             continue
         print(f"  gen   {slug}/page-{page_index:02d}.mp3 …")
         await speak(text, out_path)
         print(f"  done  {slug}/page-{page_index:02d}.mp3")
         generated += 1
+        await asyncio.sleep(1.0)
 
     return generated
 

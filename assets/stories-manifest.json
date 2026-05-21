@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T02:41:29.069038+00:00",
+  "generatedAt": "2026-05-21T03:41:40.039616+00:00",
   "stories": [
     {
       "slug": "ban-do-trong-san-truong",
@@ -20,6 +20,26 @@
       "hasHtmlBook": true,
       "hasAudio": true,
       "readingLevel": "Lớp 1"
+    },
+    {
+      "slug": "bo-va-ao-xanh",
+      "title": "Bơ Và Áo Xanh",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/bo-va-ao-xanh/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Mầm non"
+    },
+    {
+      "slug": "cam-va-qua-tron",
+      "title": "Cam Và Quả Tròn",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/cam-va-qua-tron/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Mầm non"
     },
     {
       "slug": "canh-cua-trong-tu-sach",
@@ -62,6 +82,36 @@
       "readingLevel": "Lớp 2"
     },
     {
+      "slug": "ken-tho-nhe",
+      "title": "Ken Thở Nhẹ",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/ken-tho-nhe/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Mầm non"
+    },
+    {
+      "slug": "min-xep-hinh",
+      "title": "Min Xếp Hình",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/min-xep-hinh/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Mầm non"
+    },
+    {
+      "slug": "na-va-hop-hong",
+      "title": "Na Và Hộp Hồng",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/na-va-hop-hong/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Mầm non"
+    },
+    {
       "slug": "na-va-ken-di-so-thu",
       "title": "Na Và Ken Đi Sở Thú",
       "summary": "",
@@ -70,6 +120,16 @@
       "hasHtmlBook": true,
       "hasAudio": true,
       "readingLevel": "Lớp 1"
+    },
+    {
+      "slug": "shin-va-xe-do",
+      "title": "Shin Và Xe Đỏ",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/shin-va-xe-do/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Mầm non"
     },
     {
       "slug": "thuyen-giay-ra-khoi",

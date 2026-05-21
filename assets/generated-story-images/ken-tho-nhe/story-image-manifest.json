@@ -1,0 +1,83 @@
+{
+  "story_path": "assets/stories/ken-tho-nhe.md",
+  "title": "Ken Thở Nhẹ",
+  "story_slug": "ken-tho-nhe",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/ken-tho-nhe",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Ken",
+      "description": "Bé trai 1 tuổi rưỡi, mũm mĩm, tóc hơi quắn nhẹ, mặc áo xanh có hình lon bia heneken.",
+      "prompt_path": "assets/generated-story-images/ken-tho-nhe/characters/prompts/01-ken.md",
+      "output_path": "assets/generated-story-images/ken-tho-nhe/characters/01-ken.png"
+    },
+    {
+      "index": 2,
+      "name": "Ông Ngoại",
+      "description": "Người ông ngoại hiền, ôm Ken và dạy Ken thở nhẹ khi buồn.",
+      "prompt_path": "assets/generated-story-images/ken-tho-nhe/characters/prompts/02-ong-ngoai.md",
+      "output_path": "assets/generated-story-images/ken-tho-nhe/characters/02-ong-ngoai.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Ken ôm chiếc gối nhỏ trên ghế mềm.",
+      "content": "Ken ôm gối xanh. Gối mềm như mây.",
+      "characters_present": [
+        "Ken"
+      ],
+      "prompt_path": "assets/generated-story-images/ken-tho-nhe/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/ken-tho-nhe/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Chiếc gối rơi xuống thảm trước mặt Ken.",
+      "content": "Gối rơi xuống. Ken mếu máo buồn buồn.",
+      "characters_present": [
+        "Ken"
+      ],
+      "prompt_path": "assets/generated-story-images/ken-tho-nhe/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/ken-tho-nhe/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Ông Ngoại ngồi xuống cạnh Ken trên thảm.",
+      "content": "Ông Ngoại nói: \"Ken buồn hả? Ông thương.\"",
+      "characters_present": [
+        "Ken",
+        "Ông Ngoại"
+      ],
+      "prompt_path": "assets/generated-story-images/ken-tho-nhe/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/ken-tho-nhe/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Ông Ngoại đặt tay lên ngực và thở chậm.",
+      "content": "Ông Ngoại thở nhẹ. Ken thở theo ông.",
+      "characters_present": [
+        "Ken",
+        "Ông Ngoại"
+      ],
+      "prompt_path": "assets/generated-story-images/ken-tho-nhe/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/ken-tho-nhe/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Ken ôm lại gối và ngồi sát bên Ông Ngoại.",
+      "content": "Ken hết buồn. Ken tựa vào ông.",
+      "characters_present": [
+        "Ken",
+        "Ông Ngoại"
+      ],
+      "prompt_path": "assets/generated-story-images/ken-tho-nhe/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/ken-tho-nhe/scenes/05-doan-5.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/ken-tho-nhe/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/ken-tho-nhe/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/ken-tho-nhe/story-image-manifest.json"
+}

@@ -1,0 +1,83 @@
+{
+  "story_path": "assets/stories/shin-va-xe-do.md",
+  "title": "Shin Và Xe Đỏ",
+  "story_slug": "shin-va-xe-do",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/shin-va-xe-do",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Shin",
+      "description": "Bé trai 2 tuổi rưỡi, tóc đầu đinh, thích màu đỏ và đồ chơi ôtô.",
+      "prompt_path": "assets/generated-story-images/shin-va-xe-do/characters/prompts/01-shin.md",
+      "output_path": "assets/generated-story-images/shin-va-xe-do/characters/01-shin.png"
+    },
+    {
+      "index": 2,
+      "name": "Ba",
+      "description": "Người ba hiền, kiên nhẫn giúp Shin gọi tên cảm xúc.",
+      "prompt_path": "assets/generated-story-images/shin-va-xe-do/characters/prompts/02-ba.md",
+      "output_path": "assets/generated-story-images/shin-va-xe-do/characters/02-ba.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Phòng chơi có thảm mềm và nắng sáng.",
+      "content": "Shin đẩy chiếc xe đỏ. Xe chạy vù vù.",
+      "characters_present": [
+        "Shin"
+      ],
+      "prompt_path": "assets/generated-story-images/shin-va-xe-do/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/shin-va-xe-do/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Shin cúi sát nhìn bánh xe trên sàn.",
+      "content": "Bánh xe tròn tròn. Shin cười rất vui.",
+      "characters_present": [
+        "Shin"
+      ],
+      "prompt_path": "assets/generated-story-images/shin-va-xe-do/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/shin-va-xe-do/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Xe chạm nhẹ vào chân ba.",
+      "content": "Ba hơi đau. Shin nhìn ba, mặt xịu xuống.",
+      "characters_present": [
+        "Shin",
+        "Ba"
+      ],
+      "prompt_path": "assets/generated-story-images/shin-va-xe-do/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/shin-va-xe-do/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Ba ngồi xuống cạnh Shin và chiếc xe đỏ.",
+      "content": "Ba nói nhỏ: \"Con nói xin lỗi nhé\".",
+      "characters_present": [
+        "Shin",
+        "Ba"
+      ],
+      "prompt_path": "assets/generated-story-images/shin-va-xe-do/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/shin-va-xe-do/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Shin ôm xe rồi dựa vào ba.",
+      "content": "Shin nói: \"Xin lỗi ba\". Ba mỉm cười.",
+      "characters_present": [
+        "Shin",
+        "Ba"
+      ],
+      "prompt_path": "assets/generated-story-images/shin-va-xe-do/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/shin-va-xe-do/scenes/05-doan-5.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/shin-va-xe-do/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/shin-va-xe-do/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/shin-va-xe-do/story-image-manifest.json"
+}

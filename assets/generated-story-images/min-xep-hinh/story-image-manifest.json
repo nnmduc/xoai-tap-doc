@@ -1,0 +1,84 @@
+{
+  "story_path": "assets/stories/min-xep-hinh.md",
+  "title": "Min Xếp Hình",
+  "story_slug": "min-xep-hinh",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/min-xep-hinh",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Min",
+      "description": "Bé gái 3 tuổi, tóc hai búi ngắn, áo thun xanh dương, dép cross màu vàng.",
+      "prompt_path": "assets/generated-story-images/min-xep-hinh/characters/prompts/01-min.md",
+      "output_path": "assets/generated-story-images/min-xep-hinh/characters/01-min.png"
+    },
+    {
+      "index": 2,
+      "name": "Bà",
+      "description": "Người bà ấm áp, cùng Min chơi xếp hình trên thảm.",
+      "prompt_path": "assets/generated-story-images/min-xep-hinh/characters/prompts/02-ba.md",
+      "output_path": "assets/generated-story-images/min-xep-hinh/characters/02-ba.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Min ngồi trên thảm cạnh bà, trước nhiều miếng hình.",
+      "content": "Min cầm hình vuông. Hình vuông có bốn cạnh.",
+      "characters_present": [
+        "Min",
+        "Bà"
+      ],
+      "prompt_path": "assets/generated-story-images/min-xep-hinh/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/min-xep-hinh/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Bà đưa Min một miếng tròn màu vàng.",
+      "content": "Bà hỏi: \"Hình gì vậy?\" Min nói: \"Hình tròn ạ\".",
+      "characters_present": [
+        "Min",
+        "Bà"
+      ],
+      "prompt_path": "assets/generated-story-images/min-xep-hinh/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/min-xep-hinh/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Min đặt hình tròn lên hình vuông.",
+      "content": "Một ngôi nhà nhỏ hiện ra. Min vỗ tay vui quá.",
+      "characters_present": [
+        "Min"
+      ],
+      "prompt_path": "assets/generated-story-images/min-xep-hinh/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/min-xep-hinh/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Một miếng hình rơi xuống gần chân bà.",
+      "content": "Min cúi xuống nhặt. Min đưa lại cho bà.",
+      "characters_present": [
+        "Min",
+        "Bà"
+      ],
+      "prompt_path": "assets/generated-story-images/min-xep-hinh/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/min-xep-hinh/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Bà và Min cùng xếp thêm mái nhà.",
+      "content": "Min nói: \"Cảm ơn bà\".",
+      "characters_present": [
+        "Min",
+        "Bà"
+      ],
+      "prompt_path": "assets/generated-story-images/min-xep-hinh/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/min-xep-hinh/scenes/05-doan-5.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/min-xep-hinh/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/min-xep-hinh/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/min-xep-hinh/story-image-manifest.json"
+}

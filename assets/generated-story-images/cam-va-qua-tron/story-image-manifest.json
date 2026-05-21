@@ -1,0 +1,83 @@
+{
+  "story_path": "assets/stories/cam-va-qua-tron.md",
+  "title": "Cam Và Quả Tròn",
+  "story_slug": "cam-va-qua-tron",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/cam-va-qua-tron",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Cam",
+      "description": "Bé gái 2 tuổi, nhỏ nhắn, lanh lợi, thích màu cam và quả cam.",
+      "prompt_path": "assets/generated-story-images/cam-va-qua-tron/characters/prompts/01-cam.md",
+      "output_path": "assets/generated-story-images/cam-va-qua-tron/characters/01-cam.png"
+    },
+    {
+      "index": 2,
+      "name": "Bà Ngoại",
+      "description": "Người bà ngoại dịu dàng, thích cùng Cam khám phá đồ vật quanh nhà.",
+      "prompt_path": "assets/generated-story-images/cam-va-qua-tron/characters/prompts/02-ba-ngoai.md",
+      "output_path": "assets/generated-story-images/cam-va-qua-tron/characters/02-ba-ngoai.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Cam đứng cạnh bàn ăn nhỏ có rổ quả cam.",
+      "content": "Cam thấy quả cam. Quả cam màu cam.",
+      "characters_present": [
+        "Cam"
+      ],
+      "prompt_path": "assets/generated-story-images/cam-va-qua-tron/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/cam-va-qua-tron/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Bà Ngoại đặt một quả cam vào tay Cam.",
+      "content": "Cam xoay quả cam. Quả cam tròn tròn.",
+      "characters_present": [
+        "Cam",
+        "Bà Ngoại"
+      ],
+      "prompt_path": "assets/generated-story-images/cam-va-qua-tron/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/cam-va-qua-tron/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Cam lăn quả cam chậm trên bàn.",
+      "content": "Quả cam lăn đi. Cam reo: \"Tròn quá!\"",
+      "characters_present": [
+        "Cam"
+      ],
+      "prompt_path": "assets/generated-story-images/cam-va-qua-tron/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/cam-va-qua-tron/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Bà Ngoại bóc cam, mùi cam thơm nhẹ.",
+      "content": "Bà Ngoại đưa Cam một múi. Cam cầm bằng hai tay.",
+      "characters_present": [
+        "Cam",
+        "Bà Ngoại"
+      ],
+      "prompt_path": "assets/generated-story-images/cam-va-qua-tron/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/cam-va-qua-tron/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Cam đưa một múi cam nhỏ cho Bà Ngoại.",
+      "content": "Cam nói: \"Cảm ơn bà.\" Bà Ngoại cười hiền.",
+      "characters_present": [
+        "Cam",
+        "Bà Ngoại"
+      ],
+      "prompt_path": "assets/generated-story-images/cam-va-qua-tron/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/cam-va-qua-tron/scenes/05-doan-5.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/cam-va-qua-tron/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/cam-va-qua-tron/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/cam-va-qua-tron/story-image-manifest.json"
+}

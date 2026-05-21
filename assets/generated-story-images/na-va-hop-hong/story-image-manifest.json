@@ -1,0 +1,84 @@
+{
+  "story_path": "assets/stories/na-va-hop-hong.md",
+  "title": "Na Và Hộp Hồng",
+  "story_slug": "na-va-hop-hong",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/na-va-hop-hong",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Na",
+      "description": "Bé gái 3 tuổi rưỡi, dễ thương nhưng nghịch ngợm, thích đầm hồng, tóc búi hai bên hơi dài.",
+      "prompt_path": "assets/generated-story-images/na-va-hop-hong/characters/prompts/01-na.md",
+      "output_path": "assets/generated-story-images/na-va-hop-hong/characters/01-na.png"
+    },
+    {
+      "index": 2,
+      "name": "Mẹ",
+      "description": "Người mẹ dịu dàng, cùng Na chơi tưởng tượng với hộp giấy.",
+      "prompt_path": "assets/generated-story-images/na-va-hop-hong/characters/prompts/02-me.md",
+      "output_path": "assets/generated-story-images/na-va-hop-hong/characters/02-me.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Na đứng bên hộp giấy lớn giữa phòng khách.",
+      "content": "Na thấy hộp giấy. Na muốn làm nhà màu hồng.",
+      "characters_present": [
+        "Na"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-hop-hong/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/na-va-hop-hong/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Mẹ phủ khăn hồng lên chiếc hộp.",
+      "content": "Mẹ nói: \"Nhà nhỏ của Na đây.\" Na cười khúc khích.",
+      "characters_present": [
+        "Na",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-hop-hong/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/na-va-hop-hong/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Na chui vào hộp và ló đầu ra.",
+      "content": "Na chơi ú òa. Mẹ giả vờ gõ cửa.",
+      "characters_present": [
+        "Na",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-hop-hong/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/na-va-hop-hong/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Na xoay hộp nhanh làm khăn rơi xuống sàn.",
+      "content": "Khăn rơi rồi. Na nhìn mẹ, biết mình nghịch quá.",
+      "characters_present": [
+        "Na",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-hop-hong/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/na-va-hop-hong/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Na cùng mẹ xếp lại khăn hồng trên hộp.",
+      "content": "Na nói: \"Xin lỗi mẹ.\" Hai mẹ con cùng sửa.",
+      "characters_present": [
+        "Na",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/na-va-hop-hong/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/na-va-hop-hong/scenes/05-doan-5.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/na-va-hop-hong/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/na-va-hop-hong/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/na-va-hop-hong/story-image-manifest.json"
+}

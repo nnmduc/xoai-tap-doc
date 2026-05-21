@@ -1,0 +1,85 @@
+{
+  "story_path": "assets/stories/bo-va-ao-xanh.md",
+  "title": "Bơ Và Áo Xanh",
+  "story_slug": "bo-va-ao-xanh",
+  "style": "Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/bo-va-ao-xanh",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Bơ",
+      "description": "Bé trai khoảng 1 tuổi, nặng khoảng 11 kg, dáng bụ bẫm với má tròn, tóc ngắn đầu đinh, mặc áo có hình quả bơ màu xanh.",
+      "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/characters/prompts/01-bo.md",
+      "output_path": "assets/generated-story-images/bo-va-ao-xanh/characters/01-bo.png"
+    },
+    {
+      "index": 2,
+      "name": "Mẹ",
+      "description": "Người mẹ dịu dàng, giúp Bơ mặc áo và gọi tên màu sắc.",
+      "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/characters/prompts/02-me.md",
+      "output_path": "assets/generated-story-images/bo-va-ao-xanh/characters/02-me.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Mẹ cầm chiếc áo xanh trước tủ nhỏ.",
+      "content": "Mẹ gọi: \"Bơ ơi, áo Xanh của Bơ đây\".",
+      "characters_present": [
+        "Bơ",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Bơ chạm tay vào hình quả bơ trên áo.",
+      "content": "Bơ chỉ vào áo. Mẹ nói: \"Màu xanh.\"",
+      "characters_present": [
+        "Bơ",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Mẹ nhẹ nhàng mặc áo cho Bơ.",
+      "content": "Áo mềm mềm.",
+      "characters_present": [
+        "Bơ",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Bơ soi gương nhỏ cạnh mẹ.",
+      "content": "Bơ thấy mình trong gương.",
+      "characters_present": [
+        "Bơ",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Bơ ôm mẹ trong nắng sớm.",
+      "content": "Bơ nói: \"Ạ mẹ\". Mẹ thơm má Bơ.",
+      "characters_present": [
+        "Bơ",
+        "Mẹ"
+      ],
+      "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/bo-va-ao-xanh/scenes/05-doan-5.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/bo-va-ao-xanh/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/bo-va-ao-xanh/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/bo-va-ao-xanh/story-image-manifest.json"
+}
