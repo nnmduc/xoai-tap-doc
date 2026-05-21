@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import * as heartsStore from '@/store/hearts-store'
+import { useAuth } from '@/context/auth-context'
 
 const LS_KEY = 'xoai-heart-counts'
 
@@ -21,6 +22,7 @@ function writeMyCount(slug: string, count: number): void {
 }
 
 export function useStoryHearts(slug: string) {
+  const { user, heartedSlugs, addUserHeart } = useAuth()
   const [total, setTotal] = useState<number | null>(null)
   const [myCount, setMyCount] = useState(() => readMyCount(slug))
 
@@ -38,19 +40,25 @@ export function useStoryHearts(slug: string) {
     return unsub
   }, [slug])
 
+  const hasHearted = user ? heartedSlugs.has(slug) : myCount > 0
+
   const addHeart = useCallback(() => {
     heartsStore.incrementHeart(slug)
-    setMyCount((prev) => {
-      const next = prev + 1
-      writeMyCount(slug, next)
-      return next
-    })
-  }, [slug])
+    if (user) {
+      addUserHeart(slug)
+    } else {
+      setMyCount((prev) => {
+        const next = prev + 1
+        writeMyCount(slug, next)
+        return next
+      })
+    }
+  }, [slug, user, addUserHeart])
 
   return {
     total,
     myCount,
-    hasHearted: myCount > 0,
+    hasHearted,
     addHeart,
   }
 }

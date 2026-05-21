@@ -1,4 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
+import { AuthProvider } from '@/context/auth-context'
 import { useHashRoute } from '@/hooks/use-hash-route'
 import { useStoriesManifest } from '@/hooks/use-stories-manifest'
 import { useAppSettings } from '@/hooks/use-app-settings'
@@ -7,7 +8,7 @@ import { ReaderScreen } from '@/components/reader/reader-screen'
 import { LoadingScreen } from '@/components/shared/loading-screen'
 import { ErrorScreen } from '@/components/shared/error-screen'
 
-export default function App() {
+function AppContent() {
   const { route, navigate } = useHashRoute()
   const manifestState = useStoriesManifest()
   const { audioEnabled, toggleAudio } = useAppSettings()
@@ -41,5 +42,13 @@ export default function App() {
         )}
       </AnimatePresence>
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   )
 }

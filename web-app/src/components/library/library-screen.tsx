@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ensureLoaded } from '@/store/hearts-store'
+import { useAuth } from '@/context/auth-context'
 import type { StoryEntry } from '@/types/story'
 import { LibraryHeader } from './library-header'
 import { BookCard } from './book-card'
@@ -20,6 +21,7 @@ const GRADE_FILTERS = [
 ] as const
 
 type GradeFilter = (typeof GRADE_FILTERS)[number]['value']
+type ActiveFilter = GradeFilter | 'favourites'
 
 interface Props {
   stories: StoryEntry[]
@@ -30,17 +32,27 @@ interface Props {
 
 export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAudio }: Props) {
   const prefersReduced = useReducedMotion()
-  const [gradeFilter, setGradeFilter] = useState<GradeFilter>(null)
+  const { user, heartedSlugs } = useAuth()
+  const [activeFilter, setActiveFilter] = useState<ActiveFilter>(null)
 
   useEffect(() => { ensureLoaded() }, [])
 
-  const visibleStories =
-    gradeFilter === null
-      ? stories
-      : stories.filter((s) => (s.readingLevel ?? 'Lớp 1') === gradeFilter)
+  // Reset favourites filter if user signs out
+  useEffect(() => {
+    if (!user && activeFilter === 'favourites') setActiveFilter(null)
+  }, [user, activeFilter])
 
-  const sectionLabel =
-    gradeFilter === null ? 'Tất cả sách' : `Khối ${gradeFilter}`
+  const visibleStories = (() => {
+    if (activeFilter === 'favourites') return stories.filter((s) => heartedSlugs.has(s.slug))
+    if (activeFilter === null) return stories
+    return stories.filter((s) => (s.readingLevel ?? 'Lớp 1') === activeFilter)
+  })()
+
+  const sectionLabel = (() => {
+    if (activeFilter === 'favourites') return 'Yêu thích'
+    if (activeFilter === null) return 'Tất cả sách'
+    return `Khối ${activeFilter}`
+  })()
 
   return (
     <div className="flex flex-col min-h-dvh bg-brand-bg">
@@ -51,14 +63,14 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
       />
 
       <main className="flex-1 overflow-y-auto px-4 pt-5 pb-8">
-        {/* Grade filter chips */}
+        {/* Filter chips */}
         <div className="flex gap-2 mb-4 flex-wrap">
           {GRADE_FILTERS.map(({ label, value }) => {
-            const active = gradeFilter === value
+            const active = activeFilter === value
             return (
               <button
                 key={value ?? 'all'}
-                onClick={() => setGradeFilter(value)}
+                onClick={() => setActiveFilter(value)}
                 className={`px-3 py-1.5 rounded-chip font-heading text-xs font-bold border-2 transition-colors ${
                   active
                     ? 'bg-brand-primary text-white border-brand-primary'
@@ -69,6 +81,18 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
               </button>
             )
           })}
+          {user && (
+            <button
+              onClick={() => setActiveFilter(activeFilter === 'favourites' ? null : 'favourites')}
+              className={`px-3 py-1.5 rounded-chip font-heading text-xs font-bold border-2 transition-colors ${
+                activeFilter === 'favourites'
+                  ? 'bg-pink-500 text-white border-pink-500'
+                  : 'bg-white text-brand-body border-brand-border hover:border-pink-300'
+              }`}
+            >
+              ❤️ Yêu thích
+            </button>
+          )}
         </div>
 
         <p className="text-[13px] font-heading font-bold text-brand-muted uppercase tracking-wide mb-3 pl-0.5">
@@ -77,11 +101,13 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
 
         {visibleStories.length === 0 ? (
           <p className="text-center text-brand-muted font-body py-10">
-            Chưa có sách cho {gradeFilter}
+            {activeFilter === 'favourites'
+              ? 'Chưa có sách yêu thích. Hãy bấm ❤️ để thêm!'
+              : `Chưa có sách cho ${activeFilter}`}
           </p>
         ) : (
           <motion.div
-            key={gradeFilter ?? 'all'}
+            key={activeFilter ?? 'all'}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
             variants={prefersReduced ? undefined : containerVariants}
             initial={prefersReduced ? false : 'hidden'}

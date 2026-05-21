@@ -1,3 +1,5 @@
+import { AuthButton } from '@/components/shared/auth-button'
+
 interface Props {
   storyCount: number
   audioEnabled: boolean
@@ -46,6 +48,9 @@ export function LibraryHeader({ storyCount, audioEnabled, onToggleAudio }: Props
             </p>
           </div>
 
+          {/* Header actions */}
+          <div className="flex items-center gap-2">
+          <AuthButton />
           {/* Audio toggle */}
           <button
             onClick={onToggleAudio}
@@ -74,6 +79,7 @@ export function LibraryHeader({ storyCount, audioEnabled, onToggleAudio }: Props
               </svg>
             )}
           </button>
+          </div>
         </div>
 
         <div className="mt-2.5 inline-flex items-center gap-1 bg-white/20 border border-white/30 rounded-full px-3 py-1">
