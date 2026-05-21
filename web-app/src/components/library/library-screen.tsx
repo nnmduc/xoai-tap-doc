@@ -171,22 +171,14 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
         </div>
         <p className="text-[11px] text-brand-muted font-body text-center">
           By{' '}
-          <a
-            href="https://www.facebook.com/socthaovat"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-brand-primary transition-colors"
+          <button
+            onClick={() => setAboutOpen(true)}
+            className="font-semibold text-brand-primary underline decoration-2 underline-offset-2 hover:brightness-110 transition-all"
           >
             Father
-          </a>{' '}
+          </button>{' '}
           for Xoài with Love ❤️
         </p>
-        <button
-          onClick={() => setAboutOpen(true)}
-          className="text-[11px] text-brand-muted/70 font-body underline decoration-dashed underline-offset-2 hover:text-brand-primary transition-colors"
-        >
-          Câu chuyện đằng sau dự án
-        </button>
       </div>
 
       <AboutPopup open={aboutOpen} onClose={() => setAboutOpen(false)} />
