@@ -13,8 +13,7 @@ import {
   signOut,
 } from 'firebase/auth'
 import { firebaseAuth, googleProvider } from '@/firebase'
-
-const RTDB_URL = import.meta.env.VITE_FIREBASE_RTDB_URL as string | undefined
+import { fetchUserSet, setUserEntry } from '@/store/user-prefs-store'
 
 interface AuthContextValue {
   user: User | null
@@ -23,6 +22,12 @@ interface AuthContextValue {
   signOut: () => Promise<void>
   heartedSlugs: Set<string>
   addUserHeart: (slug: string) => Promise<void>
+  hiddenSlugs: Set<string>
+  pinnedSlugs: Set<string>
+  finishedSlugs: Set<string>
+  toggleHidden: (slug: string) => Promise<void>
+  togglePinned: (slug: string) => Promise<void>
+  toggleFinished: (slug: string) => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextValue>({
@@ -32,24 +37,21 @@ const AuthContext = createContext<AuthContextValue>({
   signOut: async () => {},
   heartedSlugs: new Set(),
   addUserHeart: async () => {},
+  hiddenSlugs: new Set(),
+  pinnedSlugs: new Set(),
+  finishedSlugs: new Set(),
+  toggleHidden: async () => {},
+  togglePinned: async () => {},
+  toggleFinished: async () => {},
 })
-
-async function fetchUserHearts(uid: string, token: string): Promise<Set<string>> {
-  if (!RTDB_URL) return new Set()
-  try {
-    const res = await fetch(`${RTDB_URL}/users/${uid}/hearts.json?auth=${token}`)
-    const data = await res.json()
-    if (data && typeof data === 'object') {
-      return new Set(Object.keys(data).filter((k) => data[k] === true))
-    }
-  } catch {}
-  return new Set()
-}
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [authLoading, setAuthLoading] = useState(!!firebaseAuth)
   const [heartedSlugs, setHeartedSlugs] = useState<Set<string>>(new Set())
+  const [hiddenSlugs, setHiddenSlugs] = useState<Set<string>>(new Set())
+  const [pinnedSlugs, setPinnedSlugs] = useState<Set<string>>(new Set())
+  const [finishedSlugs, setFinishedSlugs] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (!firebaseAuth) return
@@ -58,11 +60,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setAuthLoading(false)
       if (!u) {
         setHeartedSlugs(new Set())
+        setHiddenSlugs(new Set())
+        setPinnedSlugs(new Set())
+        setFinishedSlugs(new Set())
         return
       }
       u.getIdToken()
-        .then((token) => fetchUserHearts(u.uid, token))
-        .then(setHeartedSlugs)
+        .then((token) =>
+          Promise.all([
+            fetchUserSet(u.uid, token, 'hearts'),
+            fetchUserSet(u.uid, token, 'hidden'),
+            fetchUserSet(u.uid, token, 'pinned'),
+            fetchUserSet(u.uid, token, 'finished'),
+          ]),
+        )
+        .then(([hearts, hidden, pinned, finished]) => {
+          setHeartedSlugs(hearts)
+          setHiddenSlugs(hidden)
+          setPinnedSlugs(pinned)
+          setFinishedSlugs(finished)
+        })
     })
   }, [])
 
@@ -84,15 +101,62 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const addUserHeart = useCallback(
     async (slug: string) => {
-      if (!user || !RTDB_URL) return
+      if (!user) return
       try {
         const token = await user.getIdToken()
-        await fetch(`${RTDB_URL}/users/${user.uid}/hearts/${slug}.json?auth=${token}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: 'true',
-        })
+        setUserEntry(user.uid, token, 'hearts', slug, true)
         setHeartedSlugs((prev) => new Set([...prev, slug]))
+      } catch {}
+    },
+    [user],
+  )
+
+  const toggleHidden = useCallback(
+    async (slug: string) => {
+      if (!user) return
+      try {
+        const token = await user.getIdToken()
+        setHiddenSlugs((prev) => {
+          const next = new Set(prev)
+          const toAdd = !prev.has(slug)
+          toAdd ? next.add(slug) : next.delete(slug)
+          setUserEntry(user.uid, token, 'hidden', slug, toAdd)
+          return next
+        })
+      } catch {}
+    },
+    [user],
+  )
+
+  const togglePinned = useCallback(
+    async (slug: string) => {
+      if (!user) return
+      try {
+        const token = await user.getIdToken()
+        setPinnedSlugs((prev) => {
+          const next = new Set(prev)
+          const toAdd = !prev.has(slug)
+          toAdd ? next.add(slug) : next.delete(slug)
+          setUserEntry(user.uid, token, 'pinned', slug, toAdd)
+          return next
+        })
+      } catch {}
+    },
+    [user],
+  )
+
+  const toggleFinished = useCallback(
+    async (slug: string) => {
+      if (!user) return
+      try {
+        const token = await user.getIdToken()
+        setFinishedSlugs((prev) => {
+          const next = new Set(prev)
+          const toAdd = !prev.has(slug)
+          toAdd ? next.add(slug) : next.delete(slug)
+          setUserEntry(user.uid, token, 'finished', slug, toAdd)
+          return next
+        })
       } catch {}
     },
     [user],
@@ -107,6 +171,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signOut: handleSignOut,
         heartedSlugs,
         addUserHeart,
+        hiddenSlugs,
+        pinnedSlugs,
+        finishedSlugs,
+        toggleHidden,
+        togglePinned,
+        toggleFinished,
       }}
     >
       {children}

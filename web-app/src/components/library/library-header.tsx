@@ -1,12 +1,16 @@
 import { AuthButton } from '@/components/shared/auth-button'
 
+type UserFilter = 'favourites' | 'finished' | 'hidden'
+
 interface Props {
   storyCount: number
   audioEnabled: boolean
   onToggleAudio: () => void
+  activeFilter?: string | null
+  onSelectUserFilter?: (filter: UserFilter) => void
 }
 
-export function LibraryHeader({ storyCount, audioEnabled, onToggleAudio }: Props) {
+export function LibraryHeader({ storyCount, audioEnabled, onToggleAudio, activeFilter, onSelectUserFilter }: Props) {
   return (
     <header className="relative overflow-hidden flex-shrink-0 rounded-b-[28px] px-6 pt-7 pb-5 bg-gradient-to-br from-[#4A90D9] via-[#5BA8F0] to-[#67B8F5] shadow-lg">
       {/* Decorative circles */}
@@ -50,7 +54,7 @@ export function LibraryHeader({ storyCount, audioEnabled, onToggleAudio }: Props
 
           {/* Header actions */}
           <div className="flex items-center gap-2">
-          <AuthButton />
+          <AuthButton activeFilter={activeFilter} onSelectFilter={onSelectUserFilter} />
           {/* Audio toggle */}
           <button
             onClick={onToggleAudio}

@@ -6,7 +6,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['"Baloo 2"', 'sans-serif'],
-        body: ['"Comic Neue"', 'sans-serif'],
+        body: ['"Be Vietnam Pro"', 'sans-serif'],
       },
       colors: {
         brand: {

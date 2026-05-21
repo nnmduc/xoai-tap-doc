@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ensureLoaded } from '@/store/hearts-store'
 import { useAuth } from '@/context/auth-context'
+import { normalizeVI } from '@/utils/normalize-vi-text'
 import type { StoryEntry } from '@/types/story'
 import { LibraryHeader } from './library-header'
 import { BookCard } from './book-card'
+import { SearchBar } from './search-bar'
+import { AboutPopup } from './about-popup'
 
 const containerVariants = {
   hidden: {},
@@ -21,7 +24,9 @@ const GRADE_FILTERS = [
 ] as const
 
 type GradeFilter = (typeof GRADE_FILTERS)[number]['value']
-type ActiveFilter = GradeFilter | 'favourites'
+type ActiveFilter = GradeFilter | 'favourites' | 'finished' | 'hidden'
+
+type UserFilter = 'favourites' | 'finished' | 'hidden'
 
 interface Props {
   stories: StoryEntry[]
@@ -32,26 +37,68 @@ interface Props {
 
 export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAudio }: Props) {
   const prefersReduced = useReducedMotion()
-  const { user, heartedSlugs } = useAuth()
+  const { user, heartedSlugs, hiddenSlugs, pinnedSlugs, finishedSlugs } = useAuth()
   const [activeFilter, setActiveFilter] = useState<ActiveFilter>(null)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [aboutOpen, setAboutOpen] = useState(false)
 
   useEffect(() => { ensureLoaded() }, [])
 
-  // Reset favourites filter if user signs out
+  // Reset user-only filters on sign-out
   useEffect(() => {
-    if (!user && activeFilter === 'favourites') setActiveFilter(null)
+    if (!user && (activeFilter === 'favourites' || activeFilter === 'finished' || activeFilter === 'hidden')) {
+      setActiveFilter(null)
+    }
   }, [user, activeFilter])
 
   const visibleStories = (() => {
-    if (activeFilter === 'favourites') return stories.filter((s) => heartedSlugs.has(s.slug))
-    if (activeFilter === null) return stories
-    return stories.filter((s) => (s.readingLevel ?? 'Lớp 1') === activeFilter)
+    let base = stories
+
+    if (activeFilter === 'hidden') {
+      // Hidden-only view: show hidden stories so user can unhide them
+      base = base.filter((s) => hiddenSlugs.has(s.slug))
+    } else {
+      // All other views: exclude hidden stories
+      base = base.filter((s) => !hiddenSlugs.has(s.slug))
+
+      if (activeFilter === 'favourites') base = base.filter((s) => heartedSlugs.has(s.slug))
+      else if (activeFilter === 'finished') base = base.filter((s) => finishedSlugs.has(s.slug))
+      else if (activeFilter !== null) base = base.filter((s) => (s.readingLevel ?? 'Lớp 1') === activeFilter)
+
+      // Pinned stories float to the top
+      if (user && pinnedSlugs.size > 0) {
+        base = [...base].sort((a, b) => {
+          const ap = pinnedSlugs.has(a.slug) ? 0 : 1
+          const bp = pinnedSlugs.has(b.slug) ? 0 : 1
+          return ap - bp
+        })
+      }
+    }
+
+    if (!searchQuery.trim()) return base
+    const q = normalizeVI(searchQuery)
+    return base.filter(
+      (s) =>
+        normalizeVI(s.title).includes(q) ||
+        (s.summary && normalizeVI(s.summary).includes(q)) ||
+        s.themes.some((t) => normalizeVI(t).includes(q)),
+    )
   })()
 
   const sectionLabel = (() => {
     if (activeFilter === 'favourites') return 'Yêu thích'
+    if (activeFilter === 'finished') return 'Đã đọc xong'
+    if (activeFilter === 'hidden') return 'Truyện đã ẩn'
     if (activeFilter === null) return 'Tất cả sách'
     return `Khối ${activeFilter}`
+  })()
+
+  const emptyMessage = (() => {
+    if (searchQuery.trim()) return `Không tìm thấy truyện nào cho "${searchQuery}"`
+    if (activeFilter === 'favourites') return 'Chưa có sách yêu thích. Hãy bấm ❤️ để thêm!'
+    if (activeFilter === 'finished') return 'Chưa có sách nào được đánh dấu xong.'
+    if (activeFilter === 'hidden') return 'Chưa có sách nào bị ẩn.'
+    return `Chưa có sách cho ${activeFilter}`
   })()
 
   return (
@@ -60,9 +107,13 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
         storyCount={visibleStories.length}
         audioEnabled={audioEnabled}
         onToggleAudio={onToggleAudio}
+        activeFilter={activeFilter}
+        onSelectUserFilter={(f: UserFilter) => setActiveFilter((prev) => prev === f ? null : f)}
       />
 
       <main className="flex-1 overflow-y-auto px-4 pt-5 pb-8">
+        <SearchBar value={searchQuery} onChange={setSearchQuery} />
+
         {/* Filter chips */}
         <div className="flex gap-2 mb-4 flex-wrap">
           {GRADE_FILTERS.map(({ label, value }) => {
@@ -81,18 +132,6 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
               </button>
             )
           })}
-          {user && (
-            <button
-              onClick={() => setActiveFilter(activeFilter === 'favourites' ? null : 'favourites')}
-              className={`px-3 py-1.5 rounded-chip font-heading text-xs font-bold border-2 transition-colors ${
-                activeFilter === 'favourites'
-                  ? 'bg-pink-500 text-white border-pink-500'
-                  : 'bg-white text-brand-body border-brand-border hover:border-pink-300'
-              }`}
-            >
-              ❤️ Yêu thích
-            </button>
-          )}
         </div>
 
         <p className="text-[13px] font-heading font-bold text-brand-muted uppercase tracking-wide mb-3 pl-0.5">
@@ -100,14 +139,10 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
         </p>
 
         {visibleStories.length === 0 ? (
-          <p className="text-center text-brand-muted font-body py-10">
-            {activeFilter === 'favourites'
-              ? 'Chưa có sách yêu thích. Hãy bấm ❤️ để thêm!'
-              : `Chưa có sách cho ${activeFilter}`}
-          </p>
+          <p className="text-center text-brand-muted font-body py-10">{emptyMessage}</p>
         ) : (
           <motion.div
-            key={activeFilter ?? 'all'}
+            key={`${activeFilter ?? 'all'}-${searchQuery}`}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
             variants={prefersReduced ? undefined : containerVariants}
             initial={prefersReduced ? false : 'hidden'}
@@ -146,7 +181,15 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
           </a>{' '}
           for Xoài with Love ❤️
         </p>
+        <button
+          onClick={() => setAboutOpen(true)}
+          className="text-[11px] text-brand-muted/70 font-body underline decoration-dashed underline-offset-2 hover:text-brand-primary transition-colors"
+        >
+          Câu chuyện đằng sau dự án
+        </button>
       </div>
+
+      <AboutPopup open={aboutOpen} onClose={() => setAboutOpen(false)} />
     </div>
   )
 }

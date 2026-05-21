@@ -31,13 +31,15 @@ interface Props {
   onBack: () => void
   fontScale: number
   audioEnabled: boolean
+  onReachLastPage?: () => void
 }
 
-export function StoryIframe({ story, onBack, fontScale, audioEnabled }: Props) {
+export function StoryIframe({ story, onBack, fontScale, audioEnabled, onReachLastPage }: Props) {
   const [loaded, setLoaded] = useState(false)
   const [timedOut, setTimedOut] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const observerRef = useRef<MutationObserver | null>(null)
 
   const applyFontScale = useCallback((scale: number) => {
     const doc = iframeRef.current?.contentDocument
@@ -65,15 +67,42 @@ export function StoryIframe({ story, onBack, fontScale, audioEnabled }: Props) {
     styleEl.textContent = enabled ? '' : '.audio-btn { display: none !important; }'
   }, [])
 
+  // Watch the last .page element for is-active — fires when user reaches the final page.
+  // Requires at least 2 pages (cover + content) to avoid triggering on cover-only books.
+  const setupFinishObserver = useCallback(() => {
+    observerRef.current?.disconnect()
+    observerRef.current = null
+    if (!onReachLastPage) return
+
+    const doc = iframeRef.current?.contentDocument
+    if (!doc) return
+    const pageEls = doc.querySelectorAll('.page')
+    if (pageEls.length < 2) return
+
+    const lastPage = pageEls[pageEls.length - 1] as Element
+    const observer = new MutationObserver(() => {
+      if (lastPage.classList.contains('is-active')) {
+        onReachLastPage()
+        observer.disconnect()
+        observerRef.current = null
+      }
+    })
+    observer.observe(lastPage, { attributes: true, attributeFilter: ['class'] })
+    observerRef.current = observer
+  }, [onReachLastPage])
+
   useEffect(() => {
     setLoaded(false)
     setTimedOut(false)
+    observerRef.current?.disconnect()
+    observerRef.current = null
 
     if (!story.hasHtmlBook) return
 
     timeoutRef.current = setTimeout(() => setTimedOut(true), 8000)
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      observerRef.current?.disconnect()
     }
   }, [story.slug, story.hasHtmlBook])
 
@@ -90,6 +119,7 @@ export function StoryIframe({ story, onBack, fontScale, audioEnabled }: Props) {
     setLoaded(true)
     applyFontScale(fontScale)
     applyAudioVisibility(audioEnabled)
+    setupFinishObserver()
   }
 
   if (!story.hasHtmlBook || timedOut) {
