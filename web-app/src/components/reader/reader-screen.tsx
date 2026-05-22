@@ -2,8 +2,7 @@ import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import type { StoryEntry } from '@/types/story'
 import { ReaderTopBar } from './reader-top-bar'
-import { WoodenFrame } from './wooden-frame'
-import { StoryIframe } from './story-iframe'
+import { NativeBookReader } from './native-book-reader'
 import { HeartButton } from '@/components/shared/heart-button'
 import { useAuth } from '@/context/auth-context'
 
@@ -43,6 +42,7 @@ export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Pro
     setFontScale((s) => Math.min(FONT_SCALE_MAX, +(s + FONT_SCALE_STEP).toFixed(1)))
 
   // Mark as finished on first reach of last page; no-op if already finished.
+  // finishedSlugs guard is necessary — toggleFinished is a toggle (removes if present).
   const handleReachLastPage = useCallback(() => {
     if (!finishedSlugs.has(story.slug)) {
       toggleFinished(story.slug)
@@ -51,7 +51,7 @@ export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Pro
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex flex-col bg-brand-bg"
+      className="fixed inset-0 z-50 flex flex-col bg-[#09071e]"
       variants={screenVariants}
       initial="hidden"
       animate="show"
@@ -67,15 +67,15 @@ export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Pro
         audioEnabled={audioEnabled}
         onToggleAudio={onToggleAudio}
       />
-      <WoodenFrame>
-        <StoryIframe
+      <div className="flex-1 min-h-0">
+        <NativeBookReader
           story={story}
-          onBack={onBack}
           fontScale={fontScale}
           audioEnabled={audioEnabled}
           onReachLastPage={handleReachLastPage}
+          onBack={onBack}
         />
-      </WoodenFrame>
+      </div>
       <div className="absolute bottom-5 right-4 z-10 bg-white/80 backdrop-blur-sm rounded-2xl px-2 py-1 shadow-clay border-2 border-brand-border">
         <HeartButton slug={story.slug} size="md" />
       </div>

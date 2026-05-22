@@ -13,3 +13,10 @@ export interface StoriesManifest {
   generatedAt: string
   stories: StoryEntry[]
 }
+
+export interface BookPage {
+  kind: 'cover' | 'story'
+  image: string
+  text: string
+  audio?: string
+}
