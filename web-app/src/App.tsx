@@ -37,7 +37,6 @@ function AppContent() {
             story={activeStory}
             onBack={navigate.toLibrary}
             audioEnabled={audioEnabled}
-            onToggleAudio={toggleAudio}
           />
         )}
       </AnimatePresence>

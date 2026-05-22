@@ -7,6 +7,8 @@ type UserFilter = 'favourites' | 'finished' | 'hidden'
 interface Props {
   activeFilter?: string | null
   onSelectFilter?: (filter: UserFilter) => void
+  audioEnabled?: boolean
+  onToggleAudio?: () => void
 }
 
 function UserIcon({ dimmed }: { dimmed?: boolean }) {
@@ -38,7 +40,7 @@ const USER_FILTER_ITEMS: { filter: UserFilter; icon: string; title: string; desc
   { filter: 'hidden',     icon: '🙈', title: 'Truyện đã ẩn',     desc: 'Xem và quản lý sách đã ẩn' },
 ]
 
-export function AuthButton({ activeFilter, onSelectFilter }: Props) {
+export function AuthButton({ activeFilter, onSelectFilter, audioEnabled, onToggleAudio }: Props) {
   const { user, authLoading, signIn, signOut } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
   const [menuPos, setMenuPos] = useState({ top: 0, right: 0 })
@@ -154,6 +156,27 @@ export function AuthButton({ activeFilter, onSelectFilter }: Props) {
               </button>
             )
           })}
+
+          <div className="mx-3.5 h-px bg-brand-border/60" />
+
+          {/* Audio toggle */}
+          {onToggleAudio && (
+            <button
+              onClick={() => { onToggleAudio(); setMenuOpen(false) }}
+              className="w-full flex items-center gap-2.5 px-3.5 py-2.5 text-left transition-colors hover:bg-brand-bg"
+            >
+              <span className="text-base leading-none shrink-0">{audioEnabled ? '🔊' : '🔇'}</span>
+              <div className="min-w-0 flex-1">
+                <p className="font-heading font-bold text-[13px] text-brand-text leading-tight">
+                  {audioEnabled ? 'Tắt đọc truyện' : 'Bật đọc truyện'}
+                </p>
+                <p className="font-body text-[11px] text-brand-muted leading-tight mt-0.5">
+                  {audioEnabled ? 'Đang bật — nhấn để tắt' : 'Đang tắt — nhấn để bật'}
+                </p>
+              </div>
+              {audioEnabled && <CheckIcon />}
+            </button>
+          )}
 
           <div className="mx-3.5 h-px bg-brand-border/60" />
 

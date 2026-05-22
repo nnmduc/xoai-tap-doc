@@ -32,14 +32,14 @@ export function AboutPopup({ open, onClose }: Props) {
 
           {/* Sheet */}
           <motion.div
-            className="relative z-10 w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden"
+            className="relative z-10 w-full max-w-md bg-white rounded-3xl shadow-2xl flex flex-col max-h-[90svh]"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
             transition={{ type: 'spring', damping: 28, stiffness: 320 }}
           >
             {/* Header band */}
-            <div className="bg-gradient-to-r from-[#4A90D9] to-[#67B8F5] px-6 pt-6 pb-5">
+            <div className="flex-shrink-0 bg-gradient-to-r from-[#4A90D9] to-[#67B8F5] px-6 pt-6 pb-5 rounded-t-3xl relative">
               <button
                 onClick={onClose}
                 aria-label="Đóng"
@@ -56,7 +56,7 @@ export function AboutPopup({ open, onClose }: Props) {
             </div>
 
             {/* Body */}
-            <div className="px-6 py-5 space-y-4 text-[14px] font-body text-brand-body leading-relaxed">
+            <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4 text-[14px] font-body text-brand-body leading-relaxed">
               <p>
                 Xoài sắp lên lớp Hai nhưng đọc vẫn còn chậm. Nhân dịp con về quê nghỉ hè, Ba giao nhiệm vụ mỗi ngày đọc một câu chuyện — không cần đem sách nặng, dùng ipad của Ngoại là đủ.
               </p>
@@ -88,7 +88,7 @@ export function AboutPopup({ open, onClose }: Props) {
             </div>
 
             {/* Footer action */}
-            <div className="px-6 pb-6">
+            <div className="flex-shrink-0 px-6 pb-6">
               <a
                 href="https://www.facebook.com/socthaovat"
                 target="_blank"

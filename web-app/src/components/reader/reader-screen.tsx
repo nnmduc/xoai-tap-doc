@@ -27,10 +27,9 @@ interface Props {
   story: StoryEntry
   onBack: () => void
   audioEnabled: boolean
-  onToggleAudio: () => void
 }
 
-export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Props) {
+export function ReaderScreen({ story, onBack, audioEnabled }: Props) {
   const [fontScale, setFontScale] = useState(1.0)
   const { finishedSlugs, toggleFinished } = useAuth()
 
@@ -63,8 +62,6 @@ export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Pro
         onIncreaseFontSize={handleIncrease}
         canDecrease={fontScale > FONT_SCALE_MIN}
         canIncrease={fontScale < FONT_SCALE_MAX}
-        audioEnabled={audioEnabled}
-        onToggleAudio={onToggleAudio}
       />
       <div className="flex-1 min-h-0">
         <NativeBookReader
