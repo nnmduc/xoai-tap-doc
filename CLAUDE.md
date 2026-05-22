@@ -67,13 +67,15 @@ Each story section must keep `Bối cảnh` drawable and `Nội dung` aligned to
 
 ## HTML Book Standards
 
+HTML rendering is **optional**. The web-app now serves stories natively, so generating an HTML book is no longer required by default. When a user requests a story without mentioning HTML, **ask first** whether they want the HTML book rendered before proceeding past `media_complete`.
+
 Rendered books live at:
 
 ```text
 assets/generated-story-books/<story-slug>/index.html
 ```
 
-Requirements:
+Requirements (when rendering):
 
 - cover first when present
 - one page visible at a time

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import type { StoryEntry } from '@/types/story'
 import { ReaderTopBar } from './reader-top-bar'
 import { NativeBookReader } from './native-book-reader'
-import { HeartButton } from '@/components/shared/heart-button'
 import { useAuth } from '@/context/auth-context'
 
 const FONT_SCALE_MIN = 0.8
@@ -75,9 +74,6 @@ export function ReaderScreen({ story, onBack, audioEnabled, onToggleAudio }: Pro
           onReachLastPage={handleReachLastPage}
           onBack={onBack}
         />
-      </div>
-      <div className="absolute bottom-5 right-4 z-10 bg-white/80 backdrop-blur-sm rounded-2xl px-2 py-1 shadow-clay border-2 border-brand-border">
-        <HeartButton slug={story.slug} size="md" />
       </div>
     </motion.div>
   )

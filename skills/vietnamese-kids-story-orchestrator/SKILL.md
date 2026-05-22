@@ -1,8 +1,8 @@
 ---
 name: vietnamese-kids-story-orchestrator
-description: Single entrypoint for generating a complete Vietnamese kid story package. Use when the agent should inspect whether a story is new, story-only, media-partial, media-complete, or fully rendered, then coordinate story writing, cover/character/scene image generation, and swipe-only HTML book rendering.
+description: Single entrypoint for generating a complete Vietnamese kid story package. Use when the agent should inspect whether a story is new, story-only, media-partial, media-complete, or fully rendered, then coordinate story writing, cover/character/scene image generation, and optionally swipe-only HTML book rendering.
 user-invocable: true
-when_to_use: "Invoke for end-to-end Vietnamese kids story generation — inspect pipeline status, write story, generate images, render swipe-only HTML book."
+when_to_use: "Invoke for end-to-end Vietnamese kids story generation — inspect pipeline status, write story, generate images, optionally render swipe-only HTML book."
 category: content
 keywords: [vietnamese, story, kids, orchestrator, pipeline, images, html, book]
 argument-hint: "[story-slug or story title]"
@@ -18,7 +18,7 @@ Use this skill as the first stop for end-to-end story generation. It coordinates
 - `vietnamese-first-grade-story-writer`
 - `vietnamese-kids-story-illustrator`
 - `vietnamese-kids-story-audio-reader` *(optional — skipped if edge-tts is unavailable)*
-- `kid-story-book-html-template`
+- `kid-story-book-html-template` *(optional — ask the user if not explicitly requested)*
 
 ## Status First
 
@@ -48,11 +48,29 @@ python3 skills/vietnamese-kids-story-orchestrator/scripts/inspect-story-pipeline
 
 Audio is tracked separately (`audio.exists`, `audio.count`) and does not affect pipeline state — it is always optional.
 
+HTML rendering is **optional**. `media_complete` is an acceptable final state when the user has not requested HTML.
+
 ## Orchestration Workflow
 
-**CRITICAL: This is a full-pipeline loop. Do NOT stop until the pipeline state is `complete`. Each sub-skill invocation is one step in the loop — completing a sub-skill means continue to the next step immediately, not finish.**
+**CRITICAL: Run the pipeline loop until the target state is reached. Each sub-skill invocation is one step — completing a sub-skill means continue to the next step immediately, not finish.**
 
-Run this loop until state is `complete`:
+### Step 0 — Determine HTML intent (once, before the loop)
+
+Before starting, check whether the user explicitly requested HTML output:
+
+- **Explicit yes** (user said "generate HTML", "render book", "with HTML", etc.) → set `render_html = true`
+- **Explicit no** (user said "no HTML", "skip HTML", "just the story/images") → set `render_html = false`
+- **Not mentioned** → **ask the user** before proceeding:
+
+  > "Do you want me to also render an HTML swipe-book after generating the story and images?"
+
+  Wait for the answer, then set `render_html` accordingly. Continue the loop with the target state:
+  - `render_html = true` → loop until `complete`
+  - `render_html = false` → loop until `media_complete`
+
+### Main Loop
+
+Run until the target state is reached:
 
 1. **Inspect status** with the script. Note the current state.
 2. **If `new`**: invoke `vietnamese-first-grade-story-writer` to create `assets/stories/<story-slug>.md`. Then re-inspect status and continue.
@@ -73,8 +91,9 @@ Run this loop until state is `complete`:
    - If `edge-tts` is not installed or the command fails, skip silently and continue — audio is optional.
    - If successful, audio files are written to `assets/generated-story-audio/<slug>/`.
    - Do not block pipeline progress on audio generation failure.
-6. **If `media_complete`**: invoke `kid-story-book-html-template` to render the final HTML. The render script automatically embeds audio paths for any MP3 files that exist. After it finishes, re-inspect status and continue — **do not stop here**.
-7. **If `complete`**: the pipeline is done. Report final state and output paths.
+6. **If `media_complete` and `render_html = true`**: invoke `kid-story-book-html-template` to render the final HTML. The render script automatically embeds audio paths for any MP3 files that exist. After it finishes, re-inspect status and continue — **do not stop here**.
+7. **If `media_complete` and `render_html = false`**: the pipeline target is reached. Report final state and output paths — **HTML is intentionally skipped**.
+8. **If `complete`**: the pipeline is done. Report final state and output paths.
 
 **Never stop between steps.** After each sub-skill returns, immediately re-inspect the pipeline status and proceed to the next required step.
 
@@ -94,8 +113,8 @@ assets/generated-story-images/<story-slug>/story-image-manifest.json
 assets/generated-story-images/<story-slug>/cover/cover.png
 assets/generated-story-images/<story-slug>/characters/*.png
 assets/generated-story-images/<story-slug>/scenes/*.png
-assets/generated-story-audio/<story-slug>/page-NN.mp3   ← optional
-assets/generated-story-books/<story-slug>/index.html
+assets/generated-story-audio/<story-slug>/page-NN.mp3        ← optional
+assets/generated-story-books/<story-slug>/index.html         ← optional (ask user if not requested)
 ```
 
 ## Status Script Output

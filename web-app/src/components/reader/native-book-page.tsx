@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { BookPage } from '@/types/story'
+import { HeartButton } from '@/components/shared/heart-button'
 
 const PAPER = '#fff8ed'
 const INK = '#3e2208'
@@ -49,9 +50,10 @@ interface Props {
   translateX: number
   fontScale: number
   audioEnabled: boolean
+  slug: string
 }
 
-export function NativeBookPage({ page, isActive, translateX, fontScale, audioEnabled }: Props) {
+export function NativeBookPage({ page, isActive, translateX, fontScale, audioEnabled, slug }: Props) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [playing, setPlaying] = useState(false)
   const isCover = page.kind === 'cover'
@@ -89,7 +91,6 @@ export function NativeBookPage({ page, isActive, translateX, fontScale, audioEna
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
-        borderRadius: 22,
         background: isCover ? '#09071e' : PAPER,
         transform: `translateX(${translateX}%)`,
         transition: 'transform 0.35s ease',
@@ -144,8 +145,8 @@ export function NativeBookPage({ page, isActive, translateX, fontScale, audioEna
         style={{
           ...(isCover ? { position: 'absolute', bottom: 0, left: 0, right: 0 } : {}),
           padding: isCover
-            ? 'clamp(12px, 2vmin, 20px) clamp(16px, 3.8vmin, 38px) clamp(40px, 7.5vmin, 72px)'
-            : '2px clamp(16px, 3.8vmin, 38px) clamp(34px, 6.2vmin, 58px)',
+            ? `clamp(12px, 2vmin, 20px) clamp(16px, 3.8vmin, 38px) calc(env(safe-area-inset-bottom, 0px) + 80px)`
+            : `2px clamp(16px, 3.8vmin, 38px) calc(env(safe-area-inset-bottom, 0px) + 80px)`,
           fontFamily: '"Baloo 2", ui-rounded, system-ui, sans-serif',
           fontWeight: 800,
           overflowWrap: 'anywhere',
@@ -156,12 +157,27 @@ export function NativeBookPage({ page, isActive, translateX, fontScale, audioEna
         {page.text}
       </div>
 
-      {/* Audio button */}
+      {/* Heart button — bottom-left */}
+      <div
+        style={{ position: 'absolute', bottom: 18, left: 16, zIndex: 10 }}
+        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+        onMouseUp={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+      >
+        <HeartButton slug={slug} size="md" variant="dark" />
+      </div>
+
+      {/* Audio play button — bottom-right */}
       {page.audio && audioEnabled && (
         <>
           <button
             onClick={toggleAudio}
             onTouchEnd={toggleAudio}
+            onMouseDown={(e) => e.stopPropagation()}
+            onMouseUp={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
             aria-label={playing ? 'Dừng đọc' : 'Nghe đọc'}
             aria-pressed={playing}
             style={{

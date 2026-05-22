@@ -4,17 +4,6 @@ import { useStoryPages } from '@/hooks/use-story-pages'
 import { NativeBookPage } from './native-book-page'
 import { ReaderFallback } from './reader-fallback'
 
-const RAINBOW_GLOW = [
-  '0 0 0 3px rgba(255,107,107,.88)',
-  '0 0 0 6px rgba(255,217,61,.78)',
-  '0 0 0 9px rgba(107,203,119,.68)',
-  '0 0 0 12px rgba(77,150,255,.52)',
-  '0 0 0 15px rgba(192,132,252,.38)',
-  '0 22px 72px rgba(0,0,0,.68)',
-  '0 8px 30px rgba(80,40,160,.48)',
-  'inset 0 1px 0 rgba(255,255,255,.55)',
-].join(', ')
-
 const STAGE_BG = [
   'radial-gradient(1.5px 1.5px at 8% 12%, rgba(255,255,255,.9), transparent)',
   'radial-gradient(1px 1px at 23% 6%, rgba(255,255,255,.7), transparent)',
@@ -60,6 +49,9 @@ export function NativeBookReader({ story, fontScale, audioEnabled, onReachLastPa
   const { pages, loading, error } = useStoryPages(story.slug, story.hasAudio ?? false)
   const [currentPage, setCurrentPage] = useState(0)
   const [hudVisible, setHudVisible] = useState(true)
+  const [isLandscape, setIsLandscape] = useState(
+    () => window.matchMedia('(orientation: landscape)').matches
+  )
 
   const hudTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const touchStartRef = useRef<{ x: number; y: number } | null>(null)
@@ -82,6 +74,13 @@ export function NativeBookReader({ story, fontScale, audioEnabled, onReachLastPa
     showHud()
     return () => { if (hudTimerRef.current) clearTimeout(hudTimerRef.current) }
   }, [showHud])
+
+  useEffect(() => {
+    const mq = window.matchMedia('(orientation: landscape)')
+    const handler = (e: MediaQueryListEvent) => setIsLandscape(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   // Fire finished callback when last page is reached
   useEffect(() => {
@@ -168,8 +167,16 @@ export function NativeBookReader({ story, fontScale, audioEnabled, onReachLastPa
   return (
     <div
       ref={containerRef}
-      className="w-full h-full flex items-center justify-center"
-      style={{ background: STAGE_BG, touchAction: 'none', cursor: 'default' }}
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: isLandscape ? 'stretch' : 'center',
+        justifyContent: 'center',
+        background: STAGE_BG,
+        touchAction: 'none',
+        cursor: 'default',
+      }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
@@ -179,12 +186,9 @@ export function NativeBookReader({ story, fontScale, audioEnabled, onReachLastPa
       <div
         style={{
           position: 'relative',
-          width: 'min(92vw, 800px)',
-          height: 'min(calc(100% - 16px), 1040px)',
-          borderRadius: 22,
-          background: '#fff8ed',
+          width: isLandscape ? '100%' : 'min(92vw, 800px)',
+          height: isLandscape ? '100%' : 'min(calc(100% - 16px), 1040px)',
           overflow: 'hidden',
-          boxShadow: RAINBOW_GLOW,
         }}
       >
         {pages.map((page, i) => {
@@ -197,6 +201,7 @@ export function NativeBookReader({ story, fontScale, audioEnabled, onReachLastPa
               translateX={(i - currentPage) * 100}
               fontScale={fontScale}
               audioEnabled={audioEnabled}
+              slug={story.slug}
             />
           )
         })}

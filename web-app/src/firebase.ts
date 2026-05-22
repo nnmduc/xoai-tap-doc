@@ -1,5 +1,5 @@
 import { initializeApp, getApps, type FirebaseApp } from 'firebase/app'
-import { getAuth, GoogleAuthProvider, type Auth } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, browserLocalPersistence, setPersistence, type Auth } from 'firebase/auth'
 
 const cfg = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY as string | undefined,
@@ -20,6 +20,7 @@ if (isConfigured) {
     ? initializeApp(cfg as Record<string, string>)
     : getApps()[0]
   firebaseAuth = getAuth(firebaseApp)
+  setPersistence(firebaseAuth, browserLocalPersistence)
 }
 
 export { firebaseApp, firebaseAuth, googleProvider, isConfigured as isFirebaseConfigured }
