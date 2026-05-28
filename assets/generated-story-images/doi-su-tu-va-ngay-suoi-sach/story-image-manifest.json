@@ -1,0 +1,143 @@
+{
+  "story_path": "assets/stories/doi-su-tu-va-ngay-suoi-sach.md",
+  "title": "Đội Sư Tử Và Ngày Suối Sạch",
+  "story_slug": "doi-su-tu-va-ngay-suoi-sach",
+  "reading_level": "Lớp 2",
+  "style": "Vietnamese children's picture book illustration for grade-2 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.",
+  "output_dir": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach",
+  "characters": [
+    {
+      "index": 1,
+      "name": "Nam",
+      "description": "Bạn trưởng nhóm 10 tuổi dũng cảm, thông minh, cao nhất nhóm khoảng 1m40, dáng gầy vừa và vai thẳng. Khuôn mặt hơi dài, cằm nhỏ, mắt đen sáng hơi xếch, lông mày rậm, tóc đen ngắn gọn lộ dưới mũ beret. Đội mũ beret ngay ngắn, mặc áo kaki có logo hoa bách hợp, quần short xanh, vớ cao kaki, khăn quàng xanh lá, tay cầm cờ đội Sư Tử 1.2m.",
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/characters/prompts/01-nam.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/characters/01-nam.png"
+    },
+    {
+      "index": 2,
+      "name": "An",
+      "description": "Bạn hướng đạo sinh 9 tuổi nhanh nhẹn, thấp và nhỏ con nhất nhóm khoảng 1m30, dáng mảnh mai, tay chân linh hoạt. Khuôn mặt tròn nhỏ, mắt to hiền, má có lúm đồng tiền nhẹ, tóc đen cắt mái ngắn nằm dưới mũ beret. Mặc áo kaki gọn gàng, quần short xanh, vớ cao kaki, khăn quàng xanh lá, luôn mang hộp sơ cứu y tế đeo chéo và tay cầm gậy cá nhân 1.6m.",
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/characters/prompts/02-an.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/characters/02-an.png"
+    },
+    {
+      "index": 3,
+      "name": "Bình",
+      "description": "Bạn hướng đạo sinh 9 tuổi vui tính và cẩn thận, thấp hơn Nam nhưng tròn trịa nhất nhóm khoảng 1m34, thân hình chắc và hơi mũm mĩm. Khuôn mặt bầu bĩnh, má phúng phính, mũi tròn, mắt cong như đang cười, tóc đen hơi xoăn lộ dưới mũ beret. Mặc áo kaki hơi rộng, quần short xanh, vớ cao kaki, khăn quàng xanh lá, tay cầm gậy cá nhân 1.6m.",
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/characters/prompts/03-binh.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/characters/03-binh.png"
+    }
+  ],
+  "scenes": [
+    {
+      "index": 1,
+      "setting": "Bờ suối nhỏ sau sân trường vào buổi sáng, nước chảy chậm qua bãi cỏ.",
+      "content": "Sáng thứ bảy, Nam, An và Bình đi thăm con suối sau trường. Nước suối chảy chậm và có nhiều chai nhựa.",
+      "characters_present": [
+        "Nam",
+        "An",
+        "Bình"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/01-doan-1.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/01-doan-1.png"
+    },
+    {
+      "index": 2,
+      "setting": "Một khúc suối hẹp có chai nhựa, cốc nhựa và túi ni-lông mắc bên mép đá.",
+      "content": "Bình thấy một chú cá nhỏ mắc gần chiếc cốc nhựa. An buồn nói, rác nhựa làm suối khó thở.",
+      "characters_present": [
+        "An",
+        "Bình"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/02-doan-2.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/02-doan-2.png"
+    },
+    {
+      "index": 3,
+      "setting": "Ba bạn đứng cạnh cô phụ trách bên bờ suối, trước mặt là găng tay và bao rác.",
+      "content": "Nam xin cô phụ trách cùng giúp. Cô đưa găng tay và dặn các bạn chỉ nhặt rác ở bờ suối.",
+      "characters_present": [
+        "Nam"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/03-doan-3.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/03-doan-3.png"
+    },
+    {
+      "index": 4,
+      "setting": "Bờ suối có ba bạn đang dọn rác, Nam cầm cờ, An nhặt cốc nhựa, Bình giữ bao rác.",
+      "content": "Đội Sư Tử bắt đầu làm việc thật vui. Nam nhặt chai. An nhặt cốc. Bình mở bao rác thật rộng.",
+      "characters_present": [
+        "Nam",
+        "An",
+        "Bình"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/04-doan-4.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/04-doan-4.png"
+    },
+    {
+      "index": 5,
+      "setting": "Tấm bạt sạch trên bãi cỏ, rác được chia thành hai nhóm rõ ràng.",
+      "content": "Các bạn chia rác thành hai nhóm. Một nhóm bỏ đi. Một nhóm là chai nhựa sạch để tái chế.",
+      "characters_present": [],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/05-doan-5.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/05-doan-5.png"
+    },
+    {
+      "index": 6,
+      "setting": "Bên vòi nước sân trường, Bình rửa vài chai nhựa còn tốt, An lau khô bằng khăn.",
+      "content": "Bình rửa các chai còn dùng được. An lau thật khô. Nam ghi lại số chai trong sổ nhỏ của đội.",
+      "characters_present": [
+        "Nam",
+        "An",
+        "Bình"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/06-doan-6.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/06-doan-6.png"
+    },
+    {
+      "index": 7,
+      "setting": "Góc lớp sáng sủa, ba bạn đặt đất và cây non vào những chai nhựa đã cắt sẵn.",
+      "content": "Chiều hôm đó, ba bạn làm chậu cây từ chai nhựa. Mỗi chậu có đất mềm và một cây non.",
+      "characters_present": [],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/07-doan-7.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/07-doan-7.png"
+    },
+    {
+      "index": 8,
+      "setting": "Bờ suối sạch hơn, các chậu cây nhỏ được đặt thành hàng cạnh lối đi.",
+      "content": "Ngày hôm sau, đội Sư Tử đặt chậu cây bên bờ suối. Bình cười vì chai cũ có việc mới.",
+      "characters_present": [
+        "Bình"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/08-doan-8.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/08-doan-8.png"
+    },
+    {
+      "index": 9,
+      "setting": "Dòng suối trong hơn sau cơn mưa nhẹ, chú cá nhỏ bơi qua làn nước sáng.",
+      "content": "Sau cơn mưa, nước suối chảy nhanh hơn. Chú cá nhỏ bơi qua khóm cỏ và vẫy đuôi vui vẻ.",
+      "characters_present": [
+        "An"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/09-doan-9.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/09-doan-9.png"
+    },
+    {
+      "index": 10,
+      "setting": "Nam, An và Bình đứng bên bờ suối xanh sạch, phía sau là bảng nhỏ nhắc giữ suối sạch.",
+      "content": "Nam cắm cờ đội Sư Tử bên bờ suối. An tưới cây. Bình nói, suối sạch nên ai cũng vui.",
+      "characters_present": [
+        "Nam",
+        "An",
+        "Bình"
+      ],
+      "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/prompts/10-doan-10.md",
+      "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/scenes/10-doan-10.png"
+    }
+  ],
+  "cover": {
+    "prompt_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/cover/prompts/cover.md",
+    "output_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/cover/cover.png"
+  },
+  "manifest_path": "assets/generated-story-images/doi-su-tu-va-ngay-suoi-sach/story-image-manifest.json"
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T04:38:40.527972+00:00",
+  "generatedAt": "2026-05-28T06:54:24.343193+00:00",
   "stories": [
     {
       "slug": "ban-do-trong-san-truong",
@@ -80,6 +80,16 @@
       "hasHtmlBook": false,
       "hasAudio": false,
       "readingLevel": "Lớp 3"
+    },
+    {
+      "slug": "doi-su-tu-va-ngay-suoi-sach",
+      "title": "Đội Sư Tử Và Ngày Suối Sạch",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/doi-su-tu-va-ngay-suoi-sach/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 2"
     },
     {
       "slug": "duong-sao-tren-san-thuong",
