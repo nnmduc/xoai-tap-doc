@@ -15,7 +15,7 @@ IMAGES_DIR = ROOT / "assets" / "generated-story-images"
 BOOKS_DIR = ROOT / "assets" / "generated-story-books"
 AUDIO_DIR = ROOT / "assets" / "generated-story-audio"
 STATUS_DIR = ROOT / "assets" / "story-pipeline-status"
-MAX_STORY_PAGES = 9
+MAX_STORY_PAGES = 20
 
 
 def slugify(value: str) -> str:

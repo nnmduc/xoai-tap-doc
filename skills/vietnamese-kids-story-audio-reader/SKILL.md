@@ -82,3 +82,4 @@ python3 web-app/scripts/generate-stories-manifest.py
 - If `edge-tts` is not installed, skip this step and continue the pipeline without audio.
 - Cover page audio reads the story title aloud.
 - Scene audio reads the exact `content` field from the image manifest.
+- This skill should not create image prompts during normal narration. If asked to create or repair downstream image prompt text, write generated prompts in English only while preserving Vietnamese narration text for TTS.

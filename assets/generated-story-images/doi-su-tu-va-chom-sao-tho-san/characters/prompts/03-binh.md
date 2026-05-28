@@ -1,0 +1,10 @@
+Character Reference Sheet for a Vietnamese children's book.
+
+Prompt language: English only. Translate every Vietnamese story detail into natural English before using it in the image request. Preserve Vietnamese character names only as proper nouns, and do not render any text in the image.
+
+Subject: A single character named Bình. Bạn hướng đạo sinh 9 tuổi vui tính và cẩn thận, thấp hơn Nam nhưng tròn trịa nhất nhóm khoảng 1m34, thân hình chắc và hơi mũm mĩm. Khuôn mặt bầu bĩnh, má phúng phính, mũi tròn, mắt cong như đang cười, tóc đen hơi xoăn lộ dưới mũ beret. Mặc áo kaki hơi rộng, quần short xanh, vớ cao kaki, khăn quàng xanh lá, tay cầm gậy cá nhân 1.6m..
+Appearance: Vietnamese primary-school-age child (around 8 years old).
+Composition: Full-body or three-quarter view, standing, facing the viewer, clean and clear depiction.
+Setting: Isolated on a plain, simple, solid light background.
+Style: Vietnamese children's picture book illustration for grade-3 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.
+Format: A clean, high-quality, professional character design reference sheet. No text, letters, labels, speech bubbles, page numbers, or watermarks in the image.

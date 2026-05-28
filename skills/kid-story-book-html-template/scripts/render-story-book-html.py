@@ -19,7 +19,7 @@ SKILL_DIR = Path(__file__).resolve().parents[1]
 TEMPLATE_PATH = SKILL_DIR / "assets" / "story-book-template.html"
 DEFAULT_OUTPUT_ROOT = ROOT / "assets" / "generated-story-books"
 AUDIO_DIR = ROOT / "assets" / "generated-story-audio"
-MAX_STORY_PAGES = 9
+MAX_STORY_PAGES = 20
 
 
 def slug_from_path(path: Path) -> str:

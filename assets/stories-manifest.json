@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T03:41:40.039616+00:00",
+  "generatedAt": "2026-05-28T04:38:40.527972+00:00",
   "stories": [
     {
       "slug": "ban-do-trong-san-truong",
@@ -60,6 +60,26 @@
       "hasHtmlBook": true,
       "hasAudio": true,
       "readingLevel": "Lớp 1"
+    },
+    {
+      "slug": "doi-su-tu-thap-sang-cay-cau",
+      "title": "Đội Sư Tử Thắp Sáng Cây Cầu",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/doi-su-tu-thap-sang-cay-cau/cover/cover.png",
+      "hasHtmlBook": true,
+      "hasAudio": true,
+      "readingLevel": "Lớp 2"
+    },
+    {
+      "slug": "doi-su-tu-va-chom-sao-tho-san",
+      "title": "Đội Sư Tử Và Chòm Sao Thợ Săn",
+      "summary": "",
+      "themes": [],
+      "coverPath": "/generated-story-images/doi-su-tu-va-chom-sao-tho-san/cover/cover.png",
+      "hasHtmlBook": false,
+      "hasAudio": false,
+      "readingLevel": "Lớp 3"
     },
     {
       "slug": "duong-sao-tren-san-thuong",

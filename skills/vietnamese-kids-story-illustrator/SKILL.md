@@ -21,6 +21,13 @@ Use this skill when the user gives one story markdown file, usually from `assets
 - Expected metadata: `title`, `summary`, `reading_level`, `theme`, `characters`, `setting`, `paragraph_count`.
 - Expected body sections: `### Đoạn N` with `**Bối cảnh:** ...` and `**Nội dung:** ...`.
 
+## Generated Prompt Language
+
+- All generated image prompt files must be written in English only.
+- Translate Vietnamese story details (`title`, `summary`, `setting`, `Bối cảnh`, `Nội dung`, character descriptions, and themes) into natural English inside prompt files.
+- Preserve Vietnamese character names only as proper nouns when needed.
+- If a prompt file contains Vietnamese source text after the preparation script runs, rewrite that prompt file in English before sending it to any image-generation tool.
+
 ## Output Layout
 
 Default output root:
@@ -78,6 +85,8 @@ Optional flags:
 ```bash
 python3 skills/vietnamese-kids-story-illustrator/scripts/prepare-story-image-assets.py <story.md> --output-root assets/generated-story-images --style "warm watercolor picture book"
 ```
+
+   After prompt preparation, inspect each generated prompt and ensure it is English only before image generation.
 
 3. Generate character images first, one image per prompt in `characters/prompts/`.
    - Use the AI image-generation protocol above; code-generated images are not valid outputs.

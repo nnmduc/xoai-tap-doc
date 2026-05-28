@@ -1,8 +1,7 @@
 interface:
   display_name: "Vietnamese Kids Story Illustrator"
   short_description: "Generate story characters and scene images"
-  default_prompt: "Use $vietnamese-kids-story-illustrator to generate character references and scene illustrations from one Vietnamese kid story markdown file."
+  default_prompt: "Use $vietnamese-kids-story-illustrator to generate English-only image prompts, character references, and scene illustrations from one Vietnamese kid story markdown file."
 
 policy:
   allow_implicit_invocation: true
-

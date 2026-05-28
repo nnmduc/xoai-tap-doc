@@ -1,22 +1,13 @@
-Create one portrait cover / first-page illustration for a Vietnamese grade-1 story.
+Book Cover Illustration for a Vietnamese children's book.
 
-Story title: Bản Đồ Trong Sân Trường
-Summary: Biết quan sát và giúp nhau sẽ tìm được điều thú vị.
-Main setting: Sân trường vào giờ ra chơi.
-Themes: phiêu lưu, khám phá
+Story Title: Bản Đồ Trong Sân Trường
+Story Theme & Mood: phiêu lưu, khám phá. Biết quan sát và giúp nhau sẽ tìm được điều thú vị.
+Setting: Sân trường vào giờ ra chơi.
+Characters to Include:
+- Lan: Bạn nhỏ thích vẽ.
+- Nam: Bạn nhỏ nhanh nhẹn.
+- Cô Mai: Cô giáo hiền.
 
-Character references:
-- Lan: use the reference image at assets/generated-story-images/ban-do-trong-san-truong/characters/01-lan.png as-is. Metadata: Bạn nhỏ thích vẽ.
-- Nam: use the reference image at assets/generated-story-images/ban-do-trong-san-truong/characters/02-nam.png as-is. Metadata: Bạn nhỏ nhanh nhẹn.
-- Cô Mai: use the reference image at assets/generated-story-images/ban-do-trong-san-truong/characters/03-co-mai.png as-is. Metadata: Cô giáo hiền.
-
-Requirements:
-- Make a cover image for the whole story, not a single paragraph scene.
-- Use the character reference images as-is: same face, hairstyle, outfit, colors, age, and proportions.
-- Show the story's setting, mood, and main idea in a simple concrete composition.
-- Leave calm open space near the top for title text to be added later by layout.
-- No rendered title, no text, no captions, no speech bubbles, no page numbers, no watermark, no labels.
-- Keep it suitable for Vietnamese class-1 children: warm, safe, clear, and inviting.
-
-Style:
-Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.
+Composition: A portrait orientation cover illustration capturing the essence and mood of the story. Leave some plain, uncluttered open space near the top of the image for the title text to be added later by layout.
+Style: Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.
+Format: A clean, textless, first-page book cover illustration. No written title, letters, captions, speech bubbles, page numbers, or watermarks.

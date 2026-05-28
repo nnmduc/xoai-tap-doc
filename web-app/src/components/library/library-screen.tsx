@@ -16,15 +16,16 @@ const containerVariants = {
   },
 }
 
-const GRADE_FILTERS = [
-  { label: 'Tất cả', value: null },
-  { label: 'Mầm non', value: 'Mầm non' },
-  { label: 'Lớp 1', value: 'Lớp 1' },
-  { label: 'Lớp 2', value: 'Lớp 2' },
-] as const
+const LEVEL_ORDER: Record<string, number> = {
+  'Mầm non': 0,
+  'Lớp 1': 1,
+  'Lớp 2': 2,
+  'Lớp 3': 3,
+  'Lớp 4': 4,
+  'Lớp 5': 5,
+}
 
-type GradeFilter = (typeof GRADE_FILTERS)[number]['value']
-type ActiveFilter = GradeFilter | 'favourites' | 'finished' | 'hidden'
+type ActiveFilter = string | null | 'favourites' | 'finished' | 'hidden'
 
 type UserFilter = 'favourites' | 'finished' | 'hidden'
 
@@ -41,6 +42,22 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
   const [activeFilter, setActiveFilter] = useState<ActiveFilter>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [aboutOpen, setAboutOpen] = useState(false)
+
+  // Dynamically compute grade filters based on existing stories
+  const gradeFilters = (() => {
+    const levels = Array.from(
+      new Set(stories.map((s) => s.readingLevel ?? 'Lớp 1'))
+    ).sort((a, b) => {
+      const oa = LEVEL_ORDER[a] ?? 999
+      const ob = LEVEL_ORDER[b] ?? 999
+      if (oa !== ob) return oa - ob
+      return a.localeCompare(b, 'vi')
+    })
+    return [
+      { label: 'Tất cả', value: null },
+      ...levels.map((lvl) => ({ label: lvl, value: lvl })),
+    ]
+  })()
 
   useEffect(() => { ensureLoaded() }, [])
 
@@ -116,7 +133,7 @@ export function LibraryScreen({ stories, onSelectStory, audioEnabled, onToggleAu
 
         {/* Filter chips */}
         <div className="flex gap-2 mb-4 flex-wrap">
-          {GRADE_FILTERS.map(({ label, value }) => {
+          {gradeFilters.map(({ label, value }) => {
             const active = activeFilter === value
             return (
               <button

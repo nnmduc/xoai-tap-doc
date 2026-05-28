@@ -89,6 +89,7 @@ Useful flags:
 - Do not put text inside images. Use the text area.
 - Do not shorten, paraphrase, or rewrite `Nội dung`. The template adapts typography for longer text.
 - Use `object-fit: contain` or equivalent so cover and scene images are not cropped.
+- This skill should not create image prompts during normal rendering. If asked to create or repair downstream image prompt text, write generated prompts in English only while preserving the Vietnamese story text in the HTML.
 
 ## Script Behavior
 

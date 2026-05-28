@@ -66,6 +66,7 @@ State handling:
 - Do not mix assets from different stories.
 - Do not shorten, paraphrase, or rewrite story `Nội dung` when rendering books.
 - Do not add rendered text, labels, watermarks, speech bubbles, or page numbers inside images.
+- Generated image prompt files must be English only. Translate Vietnamese story details into natural English before sending prompts to image-generation tools; preserve Vietnamese names only as proper nouns.
 - Do not create final story images with hand-written rendering code, Pillow, SVG, canvas, HTML/CSS screenshots, or placeholders. Missing media must come from an AI image-generation tool/provider or an explicitly user-provided image.
 - If story content changes after media exists, mention that existing media may be stale before regenerating.
 

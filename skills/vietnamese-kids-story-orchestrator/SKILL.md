@@ -20,6 +20,10 @@ Use this skill as the first stop for end-to-end story generation. It coordinates
 - `vietnamese-kids-story-audio-reader` *(optional — skipped if edge-tts is unavailable)*
 - `kid-story-book-html-template` *(optional — ask the user if not explicitly requested)*
 
+## Generated Prompt Language
+
+Whenever this workflow creates or consumes image-generation prompts, the prompt text must be English only. Translate Vietnamese story details into natural English inside prompt files, preserve Vietnamese character names only as proper nouns, and rewrite any generated prompt that still contains Vietnamese source text before sending it to an image tool.
+
 ## Status First
 
 Always inspect status before generating or regenerating anything:
@@ -80,6 +84,7 @@ Run until the target state is reached:
    - character images first (one per `characters[*].prompt_path` → `characters[*].output_path`)
    - then cover image (`cover.prompt_path` → `cover.output_path`)
    - then scene images (one per `scenes[*].prompt_path` → `scenes[*].output_path`)
+   - Before generation, verify each prompt file is English only; if not, rewrite it in English first.
    - On Codex/OpenAI, use the native image generation tool from the prompt files and copy generated files into the exact output paths.
    - On Claude Code, use an AI image-generation provider such as `ai-multimodal` or `ai-artist`.
    - Do not create final story media with hand-written rendering code, Pillow, SVG, canvas, HTML/CSS screenshots, or placeholders. If no AI image-generation tool/provider is available, stop and report the missing setup.

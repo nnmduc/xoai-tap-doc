@@ -18,6 +18,12 @@ DEFAULT_STYLE = (
     "environments, no scary mood, no text in image."
 )
 
+PROMPT_LANGUAGE_RULE = (
+    "Prompt language: English only. Translate every Vietnamese story detail into "
+    "natural English before using it in the image request. Preserve Vietnamese "
+    "character names only as proper nouns, and do not render any text in the image."
+)
+
 
 @dataclass
 class Character:
@@ -129,23 +135,67 @@ def parse_sections(body: str) -> list[Section]:
     return sections
 
 
-def character_prompt(title: str, character: Character, style: str) -> str:
-    return f"""Create one character reference image for a Vietnamese grade-1 story.
+def get_grade_info(reading_level: str) -> dict[str, str]:
+    normalized = reading_level.strip().lower()
+    if "mầm non" in normalized or "mam non" in normalized:
+        return {
+            "grade_en": "kindergarten",
+            "class_en": "kindergarten",
+            "age_desc": "preschool-age child (around 4-5 years old)"
+        }
+    
+    # Try to find a digit
+    match = re.search(r'\d+', normalized)
+    if match:
+        grade_num = match.group(0)
+        age = 5 + int(grade_num) # grade 1 is 6, grade 5 is 10
+        return {
+            "grade_en": f"grade-{grade_num}",
+            "class_en": f"class-{grade_num}",
+            "age_desc": f"primary-school-age child (around {age} years old)"
+        }
+    
+    # Fallback to Grade 1
+    return {
+        "grade_en": "grade-1",
+        "class_en": "class-1",
+        "age_desc": "primary-school-age child (around 6 years old)"
+    }
 
-Story: {title}
-Character name: {character.name}
-Character description from metadata: {character.description}
 
-Requirements:
-- Exactly one character in the image.
-- Full-body or three-quarter view, facing camera enough to recognize later.
-- Clean simple light background.
-- No text, no labels, no speech bubbles, no watermark.
-- Make a stable reusable design: face, hairstyle, outfit, color palette, age, and proportions must be easy to preserve in later scenes.
-- If this is a child, show a Vietnamese primary-school-age child. If this is a parent/teacher/elder, show an appropriate adult.
+def is_child_character(character_description: str) -> bool:
+    desc = character_description.lower()
+    adult_keywords = [
+        "mẹ", "bố", "cha", "bà", "ông", "thầy", "cô", "bác", "chú", "dì", "cậu", "mợ",
+        "người lớn", "adult", "parent", "teacher", "elder", "old man", "old woman"
+    ]
+    if any(keyword in desc for keyword in adult_keywords):
+        return False
+    child_keywords = [
+        "bé", "bạn nhỏ", "em bé", "em nhỏ", "con nít", "trẻ em", "child", "kid",
+        "little girl", "little boy", "son", "daughter"
+    ]
+    if any(keyword in desc for keyword in child_keywords):
+        return True
+    return True
 
-Style:
-{style}
+
+def character_prompt(title: str, character: Character, style: str, grade_info: dict[str, str]) -> str:
+    if is_child_character(character.description):
+        age_desc = f"Vietnamese {grade_info['age_desc']}"
+    else:
+        age_desc = "Vietnamese adult"
+
+    return f"""Character Reference Sheet for a Vietnamese children's book.
+
+{PROMPT_LANGUAGE_RULE}
+
+Subject: A single character named {character.name}. {character.description}.
+Appearance: {age_desc}.
+Composition: Full-body or three-quarter view, standing, facing the viewer, clean and clear depiction.
+Setting: Isolated on a plain, simple, solid light background.
+Style: {style}
+Format: A clean, high-quality, professional character design reference sheet. No text, letters, labels, speech bubbles, page numbers, or watermarks in the image.
 """
 
 
@@ -156,32 +206,26 @@ def cover_prompt(
     themes: list[str],
     all_character_refs: list[dict[str, str]],
     style: str,
+    grade_info: dict[str, str],
 ) -> str:
-    available = "\n".join(
-        f"- {ref['name']}: use the reference image at {ref['output_path']} as-is. Metadata: {ref['description']}"
+    character_details = "\n".join(
+        f"- {ref['name']}: {ref['description']}"
         for ref in all_character_refs
     )
     theme_text = ", ".join(themes) if themes else "gentle discovery"
-    return f"""Create one portrait cover / first-page illustration for a Vietnamese grade-1 story.
+    return f"""Book Cover Illustration for a Vietnamese children's book.
 
-Story title: {title}
-Summary: {summary}
-Main setting: {story_setting}
-Themes: {theme_text}
+{PROMPT_LANGUAGE_RULE}
 
-Character references:
-{available}
+Story Title: {title}
+Story Theme & Mood: {theme_text}. {summary}
+Setting: {story_setting}
+Characters to Include:
+{character_details}
 
-Requirements:
-- Make a cover image for the whole story, not a single paragraph scene.
-- Use the character reference images as-is: same face, hairstyle, outfit, colors, age, and proportions.
-- Show the story's setting, mood, and main idea in a simple concrete composition.
-- Leave calm open space near the top for title text to be added later by layout.
-- No rendered title, no text, no captions, no speech bubbles, no page numbers, no watermark, no labels.
-- Keep it suitable for Vietnamese class-1 children: warm, safe, clear, and inviting.
-
-Style:
-{style}
+Composition: A portrait orientation cover illustration capturing the essence and mood of the story. Leave some plain, uncluttered open space near the top of the image for the title text to be added later by layout.
+Style: {style}
+Format: A clean, textless, first-page book cover illustration. No written title, letters, captions, speech bubbles, page numbers, or watermarks.
 """
 
 
@@ -212,36 +256,36 @@ def scene_prompt(
     detected_refs: list[dict[str, str]],
     all_character_refs: list[dict[str, str]],
     style: str,
+    grade_info: dict[str, str],
 ) -> str:
-    detected = "\n".join(
-        f"- {ref['name']}: use the reference image at {ref['output_path']} as-is."
+    detected_details = "\n".join(
+        f"- {ref['name']}: {ref['description']}"
         for ref in detected_refs
     )
-    if not detected:
-        detected = "- No named character was detected automatically. Include only characters clearly implied by the paragraph."
-    available = "\n".join(f"- {ref['name']}: {ref['output_path']}" for ref in all_character_refs)
-    return f"""Create one landscape scene illustration for a Vietnamese grade-1 story.
+    if not detected_details:
+        detected_details = "- Only characters clearly implied by the section context."
 
-Story: {title}
-Section: Đoạn {section.number}
-Bối cảnh: {section.setting}
-Nội dung: {section.content}
+    all_details = "\n".join(
+        f"- {ref['name']}: {ref['description']}"
+        for ref in all_character_refs
+    )
 
-Detected character references for this section:
-{detected}
+    return f"""Scene Illustration for a Vietnamese children's book.
 
-All story character references available if the paragraph implies them:
-{available}
+{PROMPT_LANGUAGE_RULE}
 
-Requirements:
-- Illustrate this paragraph only.
-- Preserve referenced characters as-is: same face, hairstyle, outfit, colors, age, and proportions.
-- Show a clear Vietnamese everyday environment matching the Bối cảnh.
-- Composition must be simple and readable for class-1 children.
-- No text, captions, speech bubbles, page numbers, watermark, or random extra characters.
+Story Title: {title}
+Scene Environment: {section.setting}
+Scene Action and Story Content: {section.content}
+Characters Present in this Scene:
+{detected_details}
 
-Style:
-{style}
+All Characters in the Story (for visual reference if implied by the scene):
+{all_details}
+
+Composition: A landscape orientation scene illustration showing the characters engaged in the action described. The composition should be clear, simple, and easy to read for young readers.
+Style: {style}
+Format: A clean, textless book page illustration. No letters, words, captions, speech bubbles, page numbers, or watermarks.
 """
 
 
@@ -258,6 +302,12 @@ def build_manifest(story_path: Path, output_root: Path, style: str) -> dict:
     summary = str(metadata.get("summary") or "")
     story_setting = str(metadata.get("setting") or "")
     themes = metadata.get("theme") if isinstance(metadata.get("theme"), list) else []
+    reading_level = str(metadata.get("reading_level") or "Lớp 1").strip()
+    grade_info = get_grade_info(reading_level)
+
+    # Dynamically adjust style if it contains "grade-1"
+    style = style.replace("grade-1", grade_info["grade_en"])
+
     story_slug = slugify(title)
     story_dir = output_root / story_slug
 
@@ -275,6 +325,7 @@ def build_manifest(story_path: Path, output_root: Path, style: str) -> dict:
         "story_path": str(story_path),
         "title": title,
         "story_slug": story_slug,
+        "reading_level": reading_level,
         "style": style,
         "output_dir": str(story_dir),
         "characters": [],
@@ -286,7 +337,7 @@ def build_manifest(story_path: Path, output_root: Path, style: str) -> dict:
         character_slug = slugify(character.name)
         output_path = story_dir / "characters" / f"{index:02d}-{character_slug}.png"
         prompt_path = story_dir / "characters" / "prompts" / f"{index:02d}-{character_slug}.md"
-        write_text(prompt_path, character_prompt(title, character, style))
+        write_text(prompt_path, character_prompt(title, character, style, grade_info))
         record = {
             "index": index,
             "name": character.name,
@@ -301,7 +352,7 @@ def build_manifest(story_path: Path, output_root: Path, style: str) -> dict:
     cover_prompt_path = story_dir / "cover" / "prompts" / "cover.md"
     write_text(
         cover_prompt_path,
-        cover_prompt(title, summary, story_setting, [str(theme) for theme in themes], list(character_outputs.values()), style),
+        cover_prompt(title, summary, story_setting, [str(theme) for theme in themes], list(character_outputs.values()), style, grade_info),
     )
     manifest["cover"] = {
         "prompt_path": str(cover_prompt_path),
@@ -313,7 +364,7 @@ def build_manifest(story_path: Path, output_root: Path, style: str) -> dict:
         refs = [character_outputs[name] for name in present_names]
         output_path = story_dir / "scenes" / f"{section.number:02d}-doan-{section.number}.png"
         prompt_path = story_dir / "scenes" / "prompts" / f"{section.number:02d}-doan-{section.number}.md"
-        write_text(prompt_path, scene_prompt(title, section, refs, list(character_outputs.values()), style))
+        write_text(prompt_path, scene_prompt(title, section, refs, list(character_outputs.values()), style, grade_info))
         manifest["scenes"].append(
             {
                 "index": section.number,

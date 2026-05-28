@@ -1,0 +1,167 @@
+{
+  "state": "media_partial",
+  "story": {
+    "exists": true,
+    "path": "/Users/duc/Projects/peter/xoai-tap-doc/assets/stories/doi-su-tu-va-chom-sao-tho-san.md",
+    "title": "Đội Sư Tử Và Chòm Sao Thợ Săn",
+    "slug": "doi-su-tu-va-chom-sao-tho-san",
+    "section_count": 17,
+    "paragraph_count": 17,
+    "issues": [],
+    "ready": true
+  },
+  "media": {
+    "manifest_exists": true,
+    "manifest_path": "/Users/duc/Projects/peter/xoai-tap-doc/assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/story-image-manifest.json",
+    "expected_count": 23,
+    "existing_count": 6,
+    "missing_count": 17,
+    "missing": [
+      {
+        "kind": "scene",
+        "name": "1",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/01-doan-1.png"
+      },
+      {
+        "kind": "scene",
+        "name": "2",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/02-doan-2.png"
+      },
+      {
+        "kind": "scene",
+        "name": "3",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/03-doan-3.png"
+      },
+      {
+        "kind": "scene",
+        "name": "4",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/04-doan-4.png"
+      },
+      {
+        "kind": "scene",
+        "name": "5",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/05-doan-5.png"
+      },
+      {
+        "kind": "scene",
+        "name": "6",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/06-doan-6.png"
+      },
+      {
+        "kind": "scene",
+        "name": "7",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/07-doan-7.png"
+      },
+      {
+        "kind": "scene",
+        "name": "8",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/08-doan-8.png"
+      },
+      {
+        "kind": "scene",
+        "name": "9",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/09-doan-9.png"
+      },
+      {
+        "kind": "scene",
+        "name": "10",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/10-doan-10.png"
+      },
+      {
+        "kind": "scene",
+        "name": "11",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/11-doan-11.png"
+      },
+      {
+        "kind": "scene",
+        "name": "12",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/12-doan-12.png"
+      },
+      {
+        "kind": "scene",
+        "name": "13",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/13-doan-13.png"
+      },
+      {
+        "kind": "scene",
+        "name": "14",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/14-doan-14.png"
+      },
+      {
+        "kind": "scene",
+        "name": "15",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/15-doan-15.png"
+      },
+      {
+        "kind": "scene",
+        "name": "16",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/16-doan-16.png"
+      },
+      {
+        "kind": "scene",
+        "name": "17",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/17-doan-17.png"
+      }
+    ],
+    "existing": [
+      {
+        "kind": "cover",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/cover/cover.png"
+      },
+      {
+        "kind": "character",
+        "name": "Nam",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/characters/01-nam.png"
+      },
+      {
+        "kind": "character",
+        "name": "An",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/characters/02-an.png"
+      },
+      {
+        "kind": "character",
+        "name": "Bình",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/characters/03-binh.png"
+      },
+      {
+        "kind": "character",
+        "name": "Chú Lâm",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/characters/04-chu-lam.png"
+      },
+      {
+        "kind": "character",
+        "name": "Kẻ xấu",
+        "path": "assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/characters/05-ke-xau.png"
+      }
+    ],
+    "complete": false
+  },
+  "audio": {
+    "exists": false,
+    "count": 0,
+    "dir": "/Users/duc/Projects/peter/xoai-tap-doc/assets/generated-story-audio/doi-su-tu-va-chom-sao-tho-san"
+  },
+  "book": {
+    "exists": false,
+    "path": "/Users/duc/Projects/peter/xoai-tap-doc/assets/generated-story-books/doi-su-tu-va-chom-sao-tho-san/index.html"
+  },
+  "next_actions": [
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/01-doan-1.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/02-doan-2.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/03-doan-3.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/04-doan-4.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/05-doan-5.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/06-doan-6.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/07-doan-7.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/08-doan-8.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/09-doan-9.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/10-doan-10.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/11-doan-11.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/12-doan-12.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/13-doan-13.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/14-doan-14.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/15-doan-15.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/16-doan-16.png",
+    "Generate missing media file: assets/generated-story-images/doi-su-tu-va-chom-sao-tho-san/scenes/17-doan-17.png"
+  ]
+}

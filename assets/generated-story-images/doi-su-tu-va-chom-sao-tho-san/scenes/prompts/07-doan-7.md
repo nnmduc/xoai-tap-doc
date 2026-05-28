@@ -1,0 +1,21 @@
+Scene Illustration for a Vietnamese children's book.
+
+Prompt language: English only. Translate every Vietnamese story detail into natural English before using it in the image request. Preserve Vietnamese character names only as proper nouns, and do not render any text in the image.
+
+Story Title: Đội Sư Tử Và Chòm Sao Thợ Săn
+Scene Environment: Chú Lâm ngồi tựa vào balo trong lều, vẻ mặt lo lắng.
+Scene Action and Story Content: Chú Lâm yếu ớt kể lại rằng chú bị nhóm lâm tặc tấn công khi đi tuần tra. Chú cảnh báo bọn xấu vẫn đang truy tìm chú quanh đây và khuyên ba bạn nhỏ phải trốn đi ngay lập tức.
+Characters Present in this Scene:
+- An: Bạn hướng đạo sinh 9 tuổi nhanh nhẹn, thấp và nhỏ con nhất nhóm khoảng 1m30, dáng mảnh mai, tay chân linh hoạt. Khuôn mặt tròn nhỏ, mắt to hiền, má có lúm đồng tiền nhẹ, tóc đen cắt mái ngắn nằm dưới mũ beret. Mặc áo kaki gọn gàng, quần short xanh, vớ cao kaki, khăn quàng xanh lá, luôn mang hộp sơ cứu y tế đeo chéo và tay cầm gậy cá nhân 1.6m.
+- Chú Lâm: Chú kiểm lâm mặc đồng phục kiểm lâm màu xanh lá cây, thân hình khỏe khoắn nhưng đang bị thương ở tay và chân.
+
+All Characters in the Story (for visual reference if implied by the scene):
+- Nam: Bạn trưởng nhóm 10 tuổi dũng cảm, thông minh, cao nhất nhóm khoảng 1m40, dáng gầy vừa và vai thẳng. Khuôn mặt hơi dài, cằm nhỏ, mắt đen sáng hơi xếch, lông mày rậm, tóc đen ngắn gọn lộ dưới mũ beret. Đội mũ beret ngay ngắn, mặc áo kaki có logo hoa bách hợp, quần short xanh, vớ cao kaki, khăn quàng xanh lá, tay cầm cờ đội Sư Tử 1.2m.
+- An: Bạn hướng đạo sinh 9 tuổi nhanh nhẹn, thấp và nhỏ con nhất nhóm khoảng 1m30, dáng mảnh mai, tay chân linh hoạt. Khuôn mặt tròn nhỏ, mắt to hiền, má có lúm đồng tiền nhẹ, tóc đen cắt mái ngắn nằm dưới mũ beret. Mặc áo kaki gọn gàng, quần short xanh, vớ cao kaki, khăn quàng xanh lá, luôn mang hộp sơ cứu y tế đeo chéo và tay cầm gậy cá nhân 1.6m.
+- Bình: Bạn hướng đạo sinh 9 tuổi vui tính và cẩn thận, thấp hơn Nam nhưng tròn trịa nhất nhóm khoảng 1m34, thân hình chắc và hơi mũm mĩm. Khuôn mặt bầu bĩnh, má phúng phính, mũi tròn, mắt cong như đang cười, tóc đen hơi xoăn lộ dưới mũ beret. Mặc áo kaki hơi rộng, quần short xanh, vớ cao kaki, khăn quàng xanh lá, tay cầm gậy cá nhân 1.6m.
+- Chú Lâm: Chú kiểm lâm mặc đồng phục kiểm lâm màu xanh lá cây, thân hình khỏe khoắn nhưng đang bị thương ở tay và chân.
+- Kẻ xấu: Nhóm lâm tặc mặc quần áo tối màu, đội mũ sụp tai, cầm đèn pin lục lọi trong đêm tối.
+
+Composition: A landscape orientation scene illustration showing the characters engaged in the action described. The composition should be clear, simple, and easy to read for young readers.
+Style: Vietnamese children's picture book illustration for grade-3 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.
+Format: A clean, textless book page illustration. No letters, words, captions, speech bubbles, page numbers, or watermarks.

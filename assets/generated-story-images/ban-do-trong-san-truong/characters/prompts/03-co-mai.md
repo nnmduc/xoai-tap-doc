@@ -1,16 +1,8 @@
-Create one character reference image for a Vietnamese grade-1 story.
+Character Reference Sheet for a Vietnamese children's book.
 
-Story: Bản Đồ Trong Sân Trường
-Character name: Cô Mai
-Character description from metadata: Cô giáo hiền.
-
-Requirements:
-- Exactly one character in the image.
-- Full-body or three-quarter view, facing camera enough to recognize later.
-- Clean simple light background.
-- No text, no labels, no speech bubbles, no watermark.
-- Make a stable reusable design: face, hairstyle, outfit, color palette, age, and proportions must be easy to preserve in later scenes.
-- If this is a child, show a Vietnamese primary-school-age child. If this is a parent/teacher/elder, show an appropriate adult.
-
-Style:
-Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.
+Subject: A single character named Cô Mai. Cô giáo hiền..
+Appearance: Vietnamese adult.
+Composition: Full-body or three-quarter view, standing, facing the viewer, clean and clear depiction.
+Setting: Isolated on a plain, simple, solid light background.
+Style: Vietnamese children's picture book illustration for grade-1 readers, warm natural colors, soft watercolor and colored-pencil texture, gentle expressions, simple readable composition, safe everyday Vietnamese environments, no scary mood, no text in image.
+Format: A clean, high-quality, professional character design reference sheet. No text, letters, labels, speech bubbles, page numbers, or watermarks in the image.
